@@ -34,10 +34,12 @@ for(let titulo of titulos){
             }
         });
 
-        // TODO: Fix arrow rotation
         for(let titulo of titulos){
             let estado = window.getComputedStyle(titulo.nextElementSibling).getPropertyValue("display");
-            if(estado == titulo){
+            console.log(estado);
+            console.log(titulo);
+
+            if(estado === "none"){
                 titulo.querySelector("span").classList.add("seta_fechada");
                 titulo.querySelector("span").classList.remove("seta_aberta");
             } else {
