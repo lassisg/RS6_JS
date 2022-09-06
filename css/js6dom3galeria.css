@@ -1,0 +1,76 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+.galeria{
+    text-align: center;
+    font-size: 0; /* CUIDADO */
+}
+.galeria > img{
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.galeria > img:hover{
+    opacity: 1;
+}
+#tela{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;  /* ou 100vw (viewport width)  -> mais moderno */
+    height: 100%; /* ou 100vh (viewport height) -> mais moderno */
+    top: 0;
+    left: 0;
+    /* bottom: 0; */
+    /* right: 0; */
+    /* z-index: 99999; */
+    
+    /* Para centrar a imagem */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#tela_conteudo{
+    width: 960px;
+    /* height: 720px; */
+    border: 10px solid white;
+    position: relative;
+}
+#tela_imagem{
+    max-width: 100%;
+}
+.btFechaTela{
+    position: absolute;
+    right: -21px;
+    top: -21px;
+    background-color: white;
+    border: 3px solid #999;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 17px;
+    box-shadow: 3px 3px 5px #000;
+    cursor: pointer;
+    user-select: none;
+}
+.btFechaTela:hover{
+    color: white;
+    background-color: #999;
+}
+.btFechaTela:active{
+    box-shadow: none;
+    right: -24px;
+    top: -18px;
+}
+#tela_imagem_legenda{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    color:white;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    text-align: center;
+}
