@@ -17,8 +17,12 @@
 /* .acordeao > section:not(:first-of-type){
     display: none;
 } */
-.seta{
-    /* display: inline-block; */
-    transform: rotate(90deg) scale(1.5);
+.acordeao .seta_aberta,.acordeao .seta_fechada{
     float: right;
+}
+.acordeao .seta_fechada{
+    transform: rotate(-90deg) scale(1.5);
+}
+.acordeao .seta_aberta{
+    transform: rotate(90deg) scale(1.5);
 }

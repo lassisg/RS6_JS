@@ -27,17 +27,25 @@ for(let titulo of titulos){
         // }
         // currentSection.style.display = estado === "none" ? "block" : "none";
 
-        // currentSection.classList.toggle("esconde");
-        // for(let section of sections) {
-        //     if(section !== currentSection){
-        //         section.classList.add("esconde");
-        //     }
-        // };
-
-        sections.forEach(item => {
-            item.classList.add("esconde");
-        });
         currentSection.classList.toggle("esconde");
+        sections.forEach(section => {
+            if(section !== currentSection){
+                section.classList.add("esconde");
+            }
+        });
+
+        // TODO: Fix arrow rotation
+        for(let titulo of titulos){
+            let estado = window.getComputedStyle(titulo.nextElementSibling).getPropertyValue("display");
+            if(estado == titulo){
+                titulo.querySelector("span").classList.add("seta_fechada");
+                titulo.querySelector("span").classList.remove("seta_aberta");
+            } else {
+                titulo.querySelector("span").classList.add("seta_aberta");
+                titulo.querySelector("span").classList.remove("seta_fechada");
+            }
+        }
+
     });
 }
 
