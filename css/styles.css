@@ -1,0 +1,29 @@
+/* header{
+    width: 1200px;
+    margin: 0 auto;
+}
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-content: space-around;
+}
+.classes, .exercises{
+    border: 1px solid red;
+    flex-grow: 1;
+    justify-content: flex-end;
+} */
+pre, code{
+    /* white-space: normal; */
+    white-space: pre-line !important;
+}
+/* code {
+    background-color: #eee;
+    border: 1px solid #999;
+    padding: 5px;
+}
+blockquote code {
+    display: block;
+    margin: 10px 0;
+    padding: 20px;
+} */

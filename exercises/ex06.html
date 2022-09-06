@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css"
+            integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="/css/styles.css" />
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+            integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <title>Exercício 6</title>
+    </head>
+    <body>
+        <header
+            class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+        ></header>
+
+        <div class="container d-flex">
+            <main class="d-flex">
+                <div
+                    id="exercises-nav"
+                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
+                    style="width: 210px"
+                ></div>
+                <div class="d-flex flex-column">
+                    <h1>Exercício 6</h1>
+
+                    <p>
+                        Validar se um email fornecido pelo utilizador tem o
+                        formato correcto, apresentando uma mensagem de erro,
+                        caso não seja válido.
+                    </p>
+
+                    <p>
+                        <strong>NÃO UTILIZAR EXPRESSÕES REGULARES!</strong>
+                    </p>
+
+                    <p>Condições:</p>
+                    <ul>
+                        <li>Tem de possuir uma @</li>
+                        <li>Antes da @ tem de existir 1 caracter</li>
+                        <li>Depois da @ tem de existir um caracter</li>
+                        <li>
+                            Depois da @, mas espaçado, pelo menos 1 caracter,
+                            tem de existir 1 ponto
+                        </li>
+                        <li>
+                            Depois do ponto, têm de existir, pelo menos 2
+                            caracteres
+                        </li>
+                    </ul>
+
+                    <p>
+                        Caso não seja fornecido nenhum valor deve apresentar a
+                        mensagem "É necessário fornecer um email".
+                    </p>
+
+                    <p>Utilizar os seguintes valores para testar:</p>
+
+                    <pre><code class="language-javascript">
+                        let email1 = ""; // "É necessário fornecer um email"
+                        let email2 = "primavera"; // false
+                        let email3 = "a@primavera"; // false
+                        let email4 = "premoaldo@.primavera."; // false
+                        let email5 = "premoaldo@primavera"; // false
+                        let email6 = "premoaldo@primavera."; // false
+                        let email7 = "premoaldo@primavera.b"; // false
+                        let email8 = "premoaldo@primavera.pt"; // true
+                </code></pre>
+                </div>
+            </main>
+        </div>
+
+        <footer
+            class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        ></footer>
+
+        <script>
+            function checkIfEmailIsValid(email) {
+                if (email.length === 0) {
+                    // Caso não seja fornecido nenhum valor deve apresentar a mensagem "É necessário fornecer um email".
+                    console.log("É necessário fornecer um email.");
+                    return false;
+                } else if (
+                    email.indexOf("@") <= 0 ||
+                    email.indexOf("@") !== email.lastIndexOf("@")
+                ) {
+                    // Tem de possuir uma @
+                    // Antes da @ tem de existir 1 caracter
+                    return false;
+                } else if (
+                    email.lastIndexOf(".") < 3 ||
+                    email.lastIndexOf(".") <= email.indexOf("@") + 1
+                ) {
+                    // Depois da @ tem de existir um caracter
+                    // Depois da @, mas espaçado, pelo menos 1 caracter, tem de existir 1 ponto
+                    return false;
+                } else if (email.lastIndexOf(".") > email.length - 3) {
+                    // Depois do ponto, têm de existir, pelo menos 2 caracteres
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            let emails = [
+                "", // "É necessário fornecer um email"
+                "primavera", // false
+                "@primavera", // false
+                "a@primavera", // false
+                "premoaldo@.primavera.", // false
+                "premoaldo@primavera", // false
+                "premoaldo@primavera.", // false
+                "premoaldo@primavera.b", // false
+                "premoaldo@primavera.pt", // true
+                "a@b.co", // true
+            ];
+
+            for (const email of emails) {
+                let isValidEmail = checkIfEmailIsValid(email);
+                console.log(`${isValidEmail}: '${email}'`);
+            }
+        </script>
+
+        <script>
+            fetch("/header.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("header").innerHTML = data;
+                })
+                .then((data) => {
+                    let classLink = window.location.pathname.split("/")[1];
+                    let myLink = document.querySelector(
+                        `[href='/${classLink}/']`
+                    );
+                    myLink.classList.add("active");
+                });
+
+            fetch("/footer.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("footer").innerHTML = data;
+                });
+
+            fetch("/asideExercises.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("#exercises-nav").innerHTML = data;
+                })
+                .then((data) => {
+                    let classLink = window.location.pathname;
+                    let myLink = document.querySelector(
+                        `[href='${classLink}']`
+                    );
+                    myLink.classList.add("active");
+                });
+        </script>
+    </body>
+</html>

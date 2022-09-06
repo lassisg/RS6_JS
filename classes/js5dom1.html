@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css"
+            integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="/css/styles.css" />
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+            integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <title>Aula 05 | 2022-09-05 | DOM</title>
+
+        <style>
+            .destaque {
+                color: yellow;
+                background-color: red;
+            }
+            #conteudoCollapse {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header
+            class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+        ></header>
+
+        <div class="container d-flex">
+            <main class="d-flex">
+                <div
+                    id="classes-nav"
+                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
+                    style="width: 210px"
+                ></div>
+                <div class="d-flex flex-column">
+                    <h1>Aula 5 | DOM</h1>
+                    <p>
+                        <button type="button" id="btAltera">
+                            Altera texto
+                        </button>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Delectus, quasi aut ipsa odit ratione aspernatur
+                        mollitia error, harum dolore id, eaque qui excepturi
+                        ducimus fuga! Non sed odit ipsum. Dolor hic alias
+                        commodi totam et recusandae ipsa a, perspiciatis
+                        reprehenderit eveniet ad! Accusamus nemo dolore eum
+                        tempore omnis incidunt quidem!
+                    </p>
+                    <p>
+                        <button type="button" id="btOutro">Outro botão</button>
+                    </p>
+
+                    <p>
+                        <button type="button" id="btMostra">Mostra</button>
+                    </p>
+                    <section id="conteudoCollapse">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Nihil eius doloribus voluptatem ut vel
+                            laborum. Dignissimos maxime beatae necessitatibus
+                            blanditiis cumque eligendi eum a sed, pariatur vero
+                            saepe quo voluptas facilis sapiente ut? Quasi
+                            repudiandae ullam sint officia optio rerum? Sunt
+                            perspiciatis placeat, quo deleniti vitae distinctio
+                            unde, quaerat atque corporis iure saepe? Explicabo
+                            impedit atque veniam, odit pariatur iure. Aspernatur
+                            voluptas fugiat libero, sapiente sit impedit beatae
+                            illo tempore.
+                        </p>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <footer
+            class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        ></footer>
+        <script>
+            fetch("/header.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("header").innerHTML = data;
+                })
+                .then((data) => {
+                    let classLink = window.location.pathname.split("/")[1];
+                    let myLink = document.querySelector(
+                        `[href='/${classLink}/']`
+                    );
+                    myLink.classList.add("active");
+                });
+
+            fetch("/footer.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("footer").innerHTML = data;
+                });
+
+            fetch("/asideClasses.html")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.querySelector("#classes-nav").innerHTML = data;
+                })
+                .then((data) => {
+                    let classLink = window.location.pathname;
+                    let myLink = document.querySelector(
+                        `[href='${classLink}']`
+                    );
+                    myLink.classList.add("active");
+                });
+        </script>
+        <script src="/js/js5dom1.js"></script>
+    </body>
+</html>
