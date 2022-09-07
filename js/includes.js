@@ -26,7 +26,11 @@ fetch("/asideClasses.html")
         return response.text();
     })
     .then((data) => {
-        document.querySelector("#classes-nav").innerHTML = data;
+        let classesNav = document.querySelector("#classes-nav");
+
+        if(classesNav !== null){
+            classesNav.innerHTML = data;
+        }
     })
     .then((data) => {
         let classLink = window.location.pathname;
@@ -41,12 +45,16 @@ fetch("/asideExercises.html")
         return response.text();
     })
     .then((data) => {
-        document.querySelector("#exercises-nav").innerHTML = data;
+        let exercisesNav = document.querySelector("#exercises-nav");
+
+        if(exercisesNav !== null){
+            exercisesNav.innerHTML = data;
+        }
     })
     .then((data) => {
         let classLink = window.location.pathname;
         let myLink = document.querySelector(
-            `[href='${classLink}']`
+            `a[href='${classLink}']`
         );
         myLink.classList.add("active");
     });
