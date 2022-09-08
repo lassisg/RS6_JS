@@ -28,16 +28,18 @@ fetch("/asideClasses.html")
     .then((data) => {
         let classesNav = document.querySelector("#classes-nav");
 
-        if(classesNav !== null){
+        if(classesNav){
             classesNav.innerHTML = data;
         }
     })
     .then((data) => {
         let classLink = window.location.pathname;
         let myLink = document.querySelector(
-            `[href='${classLink}']`
+            `a[href='${classLink}']`
         );
-        myLink.classList.add("active");
+        if(myLink){
+            myLink.classList.add("active");
+        }
     });
 
 fetch("/asideExercises.html")
@@ -47,7 +49,7 @@ fetch("/asideExercises.html")
     .then((data) => {
         let exercisesNav = document.querySelector("#exercises-nav");
 
-        if(exercisesNav !== null){
+        if(exercisesNav){
             exercisesNav.innerHTML = data;
         }
     })
@@ -56,5 +58,7 @@ fetch("/asideExercises.html")
         let myLink = document.querySelector(
             `a[href='${classLink}']`
         );
-        myLink.classList.add("active");
+        if(myLink){
+            myLink.classList.add("active");
+        }
     });
