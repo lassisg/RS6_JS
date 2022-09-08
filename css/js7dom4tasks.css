@@ -1,0 +1,13 @@
+#lista_tarefas{
+    user-select: none;
+}
+.task-complete{
+    text-decoration: line-through;
+}
+.remove-bt{
+    border: none;
+}
+.remove-bt:hover{
+    border: none;
+    cursor: pointer;
+}
