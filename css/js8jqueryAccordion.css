@@ -1,0 +1,36 @@
+.acordeao {
+    width: 400px;
+}
+.acordeao h2{
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+/* child selector */
+.acordeao > section{
+    border: 1px solid black;
+    padding: 20px;
+}
+/* .esconde{
+    display: none;
+} */
+/* .acordeao > section:not(:nth-of-type(2)) { */
+.acordeao > section:not(:first-of-type){
+    display: none;
+}
+.acordeao .seta_aberta,
+.acordeao .seta_fechada{
+    float: right;
+    transition: transform 0.3s;
+}
+.acordeao .seta_fechada{
+    transform: rotate(-90deg) scale(1.5);
+    margin-right: 20px;
+}
+.acordeao .seta_aberta{
+    transform: rotate(90deg) scale(1.5);
+    margin-right: 10px;
+}
