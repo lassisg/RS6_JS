@@ -42,44 +42,36 @@
         ></header>
 
         <div class="container">
-            <main class="d-flex">
-                <div
-                    id="exercises-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                    style="width: 210px"
-                ></div>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Exercício 12</h1>
+                <p>
+                    Criar uma função <code>palavraAEncontrar</code>, que devolve
+                    o número de ocorrências de uma letra (passada como
+                    parâmetro) numa frase.
+                </p>
+                <p>Por exemplo:</p>
 
-                <div class="d-flex flex-column">
-                    <h1>Exercício 12</h1>
-                    <p>
-                        Criar uma função <code>palavraAEncontrar</code>, que
-                        devolve o número de ocorrências de uma letra (passada
-                        como parâmetro) numa frase.
-                    </p>
-                    <p>Por exemplo:</p>
+                <pre><code class="language-javascript">
+                    function palavraAEncontrar() {
+                    ...
+                    }
+                    let frase="O filho foi visitar o pai.";
+                    palavraAEncontrar("o");
+            </code></pre>
 
-                    <pre><code class="language-javascript">
-                        function palavraAEncontrar() {
-                        ...
-                        }
-                        let frase="O filho foi visitar o pai.";
-                        palavraAEncontrar("o");
-                </code></pre>
+                <p>
+                    O resultado será 3, que é o número de vezes que a letra "o"
+                    ocorre na frase (a maiúscula não entra para este cálculo).
+                    Podem utilizar métodos de strings.
+                </p>
 
-                    <p>
-                        O resultado será 3, que é o número de vezes que a letra
-                        "o" ocorre na frase (a maiúscula não entra para este
-                        cálculo). Podem utilizar métodos de strings.
-                    </p>
+                <p>Variante</p>
 
-                    <p>Variante</p>
-
-                    <p>
-                        Pretende-se que a função devolva o número de ocorrências
-                        de uma letra (passada como parâmetro) numa frase,
-                        independentemente de estar em maiúsculas ou minúsculas.
-                    </p>
-                </div>
+                <p>
+                    Pretende-se que a função devolva o número de ocorrências de
+                    uma letra (passada como parâmetro) numa frase,
+                    independentemente de estar em maiúsculas ou minúsculas.
+                </p>
             </main>
         </div>
 
@@ -102,44 +94,6 @@
             console.log(palavraAEncontrar("o"));
         </script>
 
-        <script>
-            fetch("/header.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("header").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname.split("/")[1];
-                    let myLink = document.querySelector(
-                        `[href='/${classLink}/']`
-                    );
-                    myLink.classList.add("active");
-                });
-
-            fetch("/footer.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("footer").innerHTML = data;
-                });
-
-            fetch("/asideExercises.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("#exercises-nav").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname;
-                    let myLink = document.querySelector(
-                        `[href='${classLink}']`
-                    );
-                    myLink.classList.add("active");
-                });
-        </script>
+        <script src="/js/includes.js"></script>
     </body>
 </html>

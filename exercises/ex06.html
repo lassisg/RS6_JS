@@ -42,48 +42,41 @@
         ></header>
 
         <div class="container d-flex">
-            <main class="d-flex">
-                <div
-                    id="exercises-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                    style="width: 210px"
-                ></div>
-                <div class="d-flex flex-column">
-                    <h1>Exercício 6</h1>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Exercício 6</h1>
 
-                    <p>
-                        Validar se um email fornecido pelo utilizador tem o
-                        formato correcto, apresentando uma mensagem de erro,
-                        caso não seja válido.
-                    </p>
+                <p>
+                    Validar se um email fornecido pelo utilizador tem o formato
+                    correcto, apresentando uma mensagem de erro, caso não seja
+                    válido.
+                </p>
 
-                    <p>
-                        <strong>NÃO UTILIZAR EXPRESSÕES REGULARES!</strong>
-                    </p>
+                <p>
+                    <strong>NÃO UTILIZAR EXPRESSÕES REGULARES!</strong>
+                </p>
 
-                    <p>Condições:</p>
-                    <ul>
-                        <li>Tem de possuir uma @</li>
-                        <li>Antes da @ tem de existir 1 caracter</li>
-                        <li>Depois da @ tem de existir um caracter</li>
-                        <li>
-                            Depois da @, mas espaçado, pelo menos 1 caracter,
-                            tem de existir 1 ponto
-                        </li>
-                        <li>
-                            Depois do ponto, têm de existir, pelo menos 2
-                            caracteres
-                        </li>
-                    </ul>
+                <p>Condições:</p>
+                <ul>
+                    <li>Tem de possuir uma @</li>
+                    <li>Antes da @ tem de existir 1 caracter</li>
+                    <li>Depois da @ tem de existir um caracter</li>
+                    <li>
+                        Depois da @, mas espaçado, pelo menos 1 caracter, tem de
+                        existir 1 ponto
+                    </li>
+                    <li>
+                        Depois do ponto, têm de existir, pelo menos 2 caracteres
+                    </li>
+                </ul>
 
-                    <p>
-                        Caso não seja fornecido nenhum valor deve apresentar a
-                        mensagem "É necessário fornecer um email".
-                    </p>
+                <p>
+                    Caso não seja fornecido nenhum valor deve apresentar a
+                    mensagem "É necessário fornecer um email".
+                </p>
 
-                    <p>Utilizar os seguintes valores para testar:</p>
+                <p>Utilizar os seguintes valores para testar:</p>
 
-                    <pre><code class="language-javascript">
+                <pre><code class="language-javascript">
                         let email1 = ""; // "É necessário fornecer um email"
                         let email2 = "primavera"; // false
                         let email3 = "a@primavera"; // false
@@ -93,7 +86,6 @@
                         let email7 = "premoaldo@primavera.b"; // false
                         let email8 = "premoaldo@primavera.pt"; // true
                 </code></pre>
-                </div>
             </main>
         </div>
 
@@ -148,44 +140,6 @@
             }
         </script>
 
-        <script>
-            fetch("/header.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("header").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname.split("/")[1];
-                    let myLink = document.querySelector(
-                        `[href='/${classLink}/']`
-                    );
-                    myLink.classList.add("active");
-                });
-
-            fetch("/footer.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("footer").innerHTML = data;
-                });
-
-            fetch("/asideExercises.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("#exercises-nav").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname;
-                    let myLink = document.querySelector(
-                        `[href='${classLink}']`
-                    );
-                    myLink.classList.add("active");
-                });
-        </script>
+        <script src="/js/includes.js"></script>
     </body>
 </html>

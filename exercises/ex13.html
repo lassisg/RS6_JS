@@ -43,45 +43,36 @@
         ></header>
 
         <div class="container">
-            <main class="d-flex">
-                <div
-                    id="exercises-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                    style="width: 210px"
-                ></div>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Exercício 13</h1>
 
-                <div class="d-flex flex-column">
-                    <h1>Exercício 13</h1>
+                <p>
+                    Criar uma função, <code>validaNome()</code>, que simule a
+                    validação dos nomes de variáveis em JavaScript. Isto é, a
+                    função recebe um parâmetro "nomeVariavel" e tem de
+                    determinar se o nome da variável é autorizado.
+                </p>
 
-                    <p>
-                        Criar uma função, <code>validaNome()</code>, que simule
-                        a validação dos nomes de variáveis em JavaScript. Isto
-                        é, a função recebe um parâmetro "nomeVariavel" e tem de
-                        determinar se o nome da variável é autorizado.
-                    </p>
+                <p>Regras:</p>
 
-                    <p>Regras:</p>
-
-                    <ul>
-                        <li>
-                            só pode conter letras (maiúsculas e minúsculas,
-                            excepto os caracteres acentuados e o ç), algarismos,
-                            e os caracteres $ e _
-                        </li>
-                        <li>não pode começar por um algarismo</li>
-                        <li>
-                            não pode ser uma palavra reservada de JavaScript -
-                            break, case, catch, continue, debugger, default,
-                            delete, do, else, finally, for, function, if, in,
-                            instanceof, new, return, switch, this, throw, try,
-                            typeof, var, void, while, with, class, const, enum,
-                            export, extends, import, super, implements,
-                            interface, let, package, private, protected, public,
-                            static, yield, true, false, null, NaN, Infinity e
-                            undefined
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>
+                        só pode conter letras (maiúsculas e minúsculas, excepto
+                        os caracteres acentuados e o ç), algarismos, e os
+                        caracteres $ e _
+                    </li>
+                    <li>não pode começar por um algarismo</li>
+                    <li>
+                        não pode ser uma palavra reservada de JavaScript -
+                        break, case, catch, continue, debugger, default, delete,
+                        do, else, finally, for, function, if, in, instanceof,
+                        new, return, switch, this, throw, try, typeof, var,
+                        void, while, with, class, const, enum, export, extends,
+                        import, super, implements, interface, let, package,
+                        private, protected, public, static, yield, true, false,
+                        null, NaN, Infinity e undefined
+                    </li>
+                </ul>
             </main>
         </div>
 
@@ -186,44 +177,6 @@
             validaNome("w+");
         </script>
 
-        <script>
-            fetch("/header.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("header").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname.split("/")[1];
-                    let myLink = document.querySelector(
-                        `[href='/${classLink}/']`
-                    );
-                    myLink.classList.add("active");
-                });
-
-            fetch("/footer.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("footer").innerHTML = data;
-                });
-
-            fetch("/asideExercises.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("#exercises-nav").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname;
-                    let myLink = document.querySelector(
-                        `[href='${classLink}']`
-                    );
-                    myLink.classList.add("active");
-                });
-        </script>
+        <script src="/js/includes.js"></script>
     </body>
 </html>

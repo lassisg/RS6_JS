@@ -4,10 +4,11 @@
 .task-complete{
     text-decoration: line-through;
 }
-.remove-bt{
+/* .remove-bt{
     border: none;
-}
+} */
+.edit-bt:hover,
 .remove-bt:hover{
-    border: none;
+    /* border: none; */
     cursor: pointer;
 }

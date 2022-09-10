@@ -42,34 +42,26 @@
         ></header>
 
         <div class="container">
-            <main class="d-flex">
-                <div
-                    id="exercises-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                    style="width: 210px"
-                ></div>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Exercício 15</h1>
 
-                <div class="d-flex flex-column">
-                    <h1>Exercício 15</h1>
+                <p>
+                    Criar uma função, <code>remove_elementos()</code>, que
+                    localiza e remove elementos de um array.
+                </p>
 
-                    <p>
-                        Criar uma função, <code>remove_elementos()</code>, que
-                        localiza e remove elementos de um array.
-                    </p>
+                <p>Exemplo:</p>
 
-                    <p>Exemplo:</p>
-
-                    <pre><code class="language-javascript">
+                <pre><code class="language-javascript">
                     let nomes=["Pedro", "Mário", "João", "Filipe", "Fernando"];
                     remove_elementos("Mário");
                 </code></pre>
 
-                    <p>O array "nomes" tem agora os seguintes elementos:</p>
+                <p>O array "nomes" tem agora os seguintes elementos:</p>
 
-                    <pre><code class="language-javascript">
+                <pre><code class="language-javascript">
                     ["Pedro", "João", "Filipe", "Fernando"]
                 </code></pre>
-                </div>
             </main>
         </div>
 
@@ -93,44 +85,6 @@
             console.log(nomes);
         </script>
 
-        <script>
-            fetch("/header.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("header").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname.split("/")[1];
-                    let myLink = document.querySelector(
-                        `[href='/${classLink}/']`
-                    );
-                    myLink.classList.add("active");
-                });
-
-            fetch("/footer.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("footer").innerHTML = data;
-                });
-
-            fetch("/asideExercises.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("#exercises-nav").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname;
-                    let myLink = document.querySelector(
-                        `[href='${classLink}']`
-                    );
-                    myLink.classList.add("active");
-                });
-        </script>
+        <script src="/js/includes.js"></script>
     </body>
 </html>

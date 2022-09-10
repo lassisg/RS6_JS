@@ -42,41 +42,32 @@
         ></header>
 
         <div class="container flex-column">
-            <main class="d-flex">
-                <div
-                    id="exercises-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                    style="width: 210px"
-                ></div>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Exercício 8</h1>
 
-                <div class="d-flex flex-column">
-                    <h1>Exercício 8</h1>
+                <p>
+                    Sem recorrer ao método toUpperCase() converta uma string
+                    para maiúsculas.
+                </p>
 
-                    <p>
-                        Sem recorrer ao método toUpperCase() converta uma string
-                        para maiúsculas.
-                    </p>
+                <p>Exemplo, fornecendo a seguinte variável,</p>
 
-                    <p>Exemplo, fornecendo a seguinte variável,</p>
-
-                    <pre><code class="language-javascript">
+                <pre><code class="language-javascript">
                     let nome="Pedro Remoaldo";
                 </code></pre>
 
-                    <p>o resultado deve ser:</p>
+                <p>o resultado deve ser:</p>
 
-                    <pre><code class="language-javascript">
+                <pre><code class="language-javascript">
                     PEDRO REMOALDO
                 </code></pre>
 
-                    <p>
-                        Ideia: cada caractere tem um código ASCII/Unicode
-                        específico - por exemplo, a letra "a" tem o código 97 e
-                        a letra "A" tem o código 65. Existe uma função em
-                        JavaScript que permite saber o código ASCII de um
-                        caracter.
-                    </p>
-                </div>
+                <p>
+                    Ideia: cada caractere tem um código ASCII/Unicode específico
+                    - por exemplo, a letra "a" tem o código 97 e a letra "A" tem
+                    o código 65. Existe uma função em JavaScript que permite
+                    saber o código ASCII de um caracter.
+                </p>
             </main>
         </div>
 
@@ -99,44 +90,6 @@
             console.log(nomeUpper);
         </script>
 
-        <script>
-            fetch("/header.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("header").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname.split("/")[1];
-                    let myLink = document.querySelector(
-                        `[href='/${classLink}/']`
-                    );
-                    myLink.classList.add("active");
-                });
-
-            fetch("/footer.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("footer").innerHTML = data;
-                });
-
-            fetch("/asideExercises.html")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.querySelector("#exercises-nav").innerHTML = data;
-                })
-                .then((data) => {
-                    let classLink = window.location.pathname;
-                    let myLink = document.querySelector(
-                        `[href='${classLink}']`
-                    );
-                    myLink.classList.add("active");
-                });
-        </script>
+        <script src="/js/includes.js"></script>
     </body>
 </html>

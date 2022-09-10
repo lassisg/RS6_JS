@@ -14,18 +14,14 @@
             integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
             crossorigin="anonymous"
         />
+        <link 
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+            rel="stylesheet" 
+        />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css"
             integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
@@ -53,44 +49,75 @@
         ></header>
 
         <div class="container d-flex">
-            <main class="d-flex">
-                <div
-                    id="classes-nav"
-                    class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-                ></div>
-                <div class="d-flex flex-column">
-                    <h1>Aula 7 | DOM - Tasks</h1>
+            <main class="d-flex flex-column">
+                <h1 class="display-4 text-primary">Aula 7 | DOM - Tasks</h1>
 
-                    <h2>Gestão de tarefas</h2>
+                <h2 class="display-6">Gestão de tarefas</h2>
 
-                    <form id="form_tarefa">
-                        <p>
-                            <label class="form-label" for="tarefa"
-                                >Tarefa</label
-                            ><input
-                                type="text"
-                                name="tarefa"
-                                id="tarefa"
-                                class="form-control"
-                            />
-                            <div class="invalid-feedback invalid-task">
-                                A tarefa não pode ser vazia e deve ter, no mínimo, 3 caracteres.
-                            </div>
-                        </p>
-                        <p>
-                            <input
-                                type="submit"
-                                value="Inserir tarefa"
-                                id="btSubmit"
-                                class="btn btn-primary"
-                            />
-                        </p>
-                    </form>
-                    
-                    <hr>
-                    
-                    <ul id="lista_tarefas" class="list-group"></ul>
+                <form id="form_tarefa" class="card">
+                    <div class="card-body">
+                    <p>
+                        <label class="form-label" for="tarefa"
+                            >Tarefa</label
+                        ><input
+                            type="text"
+                            name="tarefa"
+                            id="tarefa"
+                            class="form-control"
+                            placeholder="Digite aqui sua nova tarefa"
+                        />
+                        <div class="invalid-feedback invalid-task">
+                            A tarefa não pode ser vazia e deve ter, no mínimo, 3 caracteres.
+                        </div>
+
+                        <label class="form-label" for="data-tarefa"
+                            >Data limite</label
+                        ><input
+                            type="date"
+                            name="data-tarefa"
+                            id="data-tarefa"
+                            class="form-control"
+                        />
+                        <div class="invalid-feedback invalid-date">
+                            A data não pode ser no passado.
+                        </div>
+                    </p>
+                    <p>
+                        <input
+                            type="submit"
+                            value="Inserir tarefa"
+                            id="btSubmit"
+                            class="btn btn-primary"
+                        />
+                    </p>
                 </div>
+                </form>
+                
+                <hr>
+                
+                <!-- <ul id="lista_tarefas" class="list-group">
+                    <!-- For test purpose only --
+                    <li class="tarefa-todo list-group-item d-flex align-items-center gap-2 bg-warning">
+                        <span class="tarefa-texto flex-grow-1">nmsfmnfmnf</span>
+                        <span class="tarefa-data">2022-09-23</span>
+                        <span class="btn btn-outline-primary edit-bt"><i class="bi bi-pencil edit-bt"></i></span>
+                        <span class="btn btn-outline-danger remove-bt"><i class="bi bi-x-lg remove-bt"></i></span>
+                    </li>
+                </ul>
+
+                <hr> -->
+
+                <table id="lista_tarefas" class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tarefa</th>
+                            <th scope="col">Data limite</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </main>
         </div>
 
