@@ -3,12 +3,14 @@ let tableRows = document.querySelector("#lista_tarefas > tbody");
 let formTarefa = document.querySelector("#form_tarefa");
 let campoTarefa = document.querySelector('#tarefa');
 let campoDataTarefa = document.querySelector('#data-tarefa');
+let formButton = document.querySelector("#btSubmit");
 let now = new Date();
 let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
 if(!tableRows.childElementCount){
-    listaTarefas.style.display = "none";
+    listaTarefas.parentElement.parentElement.style.display = "none";
 }
+
 
 // document.querySelector("#btSubmit").addEventListener("click", function(){
 formTarefa.addEventListener("submit", function(event){
@@ -22,6 +24,7 @@ formTarefa.addEventListener("submit", function(event){
     // Validar o valor introduzido (não pode vazio / tem de ter, nomínimo, 3 caracteres )
     let taskValidationMessage = document.querySelector(".invalid-feedback.invalid-task");
     let taskDateValidationMessage = document.querySelector(".invalid-feedback.invalid-date");
+    let isEdit = formButton.classList.contains("update");
     if (valor.length > 2 && dataValida) {
         
         // Poder eliminar umva tarefa (add 'X')
@@ -41,27 +44,38 @@ formTarefa.addEventListener("submit", function(event){
         
         
         // Para tabela
-        let bodyTabela = listaTarefas.querySelector("tbody");
-        bodyTabela.innerHTML += `
-            <tr class="tarefa-todo">
-                <td class="tarefa-texto" scope="row w-50">
-                    <span>${valor}</span>
-                </td>
-                <td class="tarefa-data" class="w-25">
-                    <span>${data}</span>
-                </td>
-                <td class="w-25">
-                    <span class="btn btn-outline-primary edit-bt">${editIcon}</span>
-                    <span class="btn btn-outline-danger remove-bt">${removeIcon}</span>
-                </td>
-            </tr>`;
+        if(isEdit){
+            let tarefaAtual = document.querySelector(".edit");
+            tarefaAtual.classList.remove("edit");
+            tarefaAtual.querySelector(".tarefa-texto > span").textContent = campoTarefa.value;
+            tarefaAtual.querySelector(".tarefa-data > span").textContent = campoDataTarefa.value;
+            formButton.classList.remove("update");
+            formButton.value = "Inserir tarefa";
+        }else{
+            let bodyTabela = listaTarefas.querySelector("tbody");
+            bodyTabela.innerHTML += `
+                <tr class="tarefa-todo">
+                    <td class="tarefa-texto w-50" scope="row">
+                        <span>${valor}</span>
+                    </td>
+                    <td class="tarefa-data">
+                        <span>${data}</span>
+                    </td>
+                    <td class="w-25">
+                        <span class="btn btn-outline-primary edit-bt">${editIcon}</span>
+                        <span class="btn btn-outline-danger remove-bt">${removeIcon}</span>
+                    </td>
+                </tr>`;
 
-        listaTarefas.style.display = "table";
+            // listaTarefas.style.display = "table";
+            listaTarefas.parentElement.parentElement.style.display = "flex";
+        }
         campoTarefa.value = '';
         campoDataTarefa.value = '';
         taskValidationMessage.style.display = "none";
         taskDateValidationMessage.style.display = "none";
-    }else {
+        campoTarefa.focus();
+    } else {
         taskDateValidationMessage.style.display = "none";
         if(!dataValida){
             taskDateValidationMessage.style.display = "block";
@@ -172,21 +186,31 @@ listaTarefas.addEventListener("click", function(event){
     let elemento = event.target;
     
     let isRemoveButton = elemento.classList.contains("remove-bt");
-    if(isRemoveButton && elemento.nodeName === "SPAN"){
-        elemento.parentElement.parentElement.remove();
-    }else if(isRemoveButton && elemento.nodeName === "I"){
-        elemento.parentElement.parentElement.parentElement.remove();
+    // if(isRemoveButton && elemento.nodeName === "SPAN"){
+    //     elemento.parentElement.parentElement.remove();
+    // }else if(isRemoveButton && elemento.nodeName === "I"){
+    //     elemento.parentElement.parentElement.parentElement.remove();
+    // }
+
+    if(isRemoveButton){
+        elemento.closest("tr").remove();
     }
     
     if(!tableRows.childElementCount){
-        listaTarefas.style.display = "none";
+        listaTarefas.parentElement.parentElement.style.display = "none";
+        campoTarefa.focus();
     }
 
     // let tableRows = document.querySelector("#lista-tarefas > tbody");
 
     let isEditButton = elemento.classList.contains("edit-bt");
     if(isEditButton){
-        console.log("Editar tarefa...");
+        let tarefa = elemento.closest("tr");
+        tarefa.classList.add("edit");
+        campoTarefa.value = tarefa.querySelector(".tarefa-texto > span").textContent;
+        campoDataTarefa.value = tarefa.querySelector(".tarefa-data > span").textContent;
+        formButton.classList.add("update");
+        formButton.value = "Atualizar tarefa";
     }
 });
 
@@ -203,4 +227,4 @@ listaTarefas.addEventListener("dblclick", function(event){
 
 // DONE: Acrescentar campo de data limite 
 // DONE: Visualizar as tarefas numa tabela
-// TODO: Permitir a alteração de uma tarefa
+// DONE: Permitir a alteração de uma tarefa

@@ -49,75 +49,112 @@
         ></header>
 
         <div class="container d-flex">
-            <main class="d-flex flex-column">
+
+
+            <main class="d-flex flex-column flex-grow-1">
                 <h1 class="display-4 text-primary">Aula 7 | DOM - Tasks</h1>
 
                 <h2 class="display-6">Gestão de tarefas</h2>
 
-                <form id="form_tarefa" class="card">
-                    <div class="card-body">
-                    <p>
-                        <label class="form-label" for="tarefa"
-                            >Tarefa</label
-                        ><input
-                            type="text"
-                            name="tarefa"
-                            id="tarefa"
-                            class="form-control"
-                            placeholder="Digite aqui sua nova tarefa"
-                        />
-                        <div class="invalid-feedback invalid-task">
-                            A tarefa não pode ser vazia e deve ter, no mínimo, 3 caracteres.
+                <!-- <div class="content d-flex flex-column"> -->
+                <!-- <div class="content d-flex flex-wrap justify-content-center py-3 mb-4"> -->
+    
+                <!-- <div class="row"> -->
+                <div class="d-flex flex-wrap gap-4">
+                    <div class="flex-grow-1">
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="form_tarefa">
+                                    <p>
+                                        <label class="form-label" for="tarefa"
+                                            >Tarefa</label
+                                        ><input
+                                            type="text"
+                                            name="tarefa"
+                                            id="tarefa"
+                                            class="form-control"
+                                            placeholder="Digite aqui sua nova tarefa"
+                                        />
+                                        <div class="invalid-feedback invalid-task">
+                                            A tarefa não pode ser vazia e deve ter, no mínimo, 3 caracteres.
+                                        </div>
+
+                                        <label class="form-label" for="data-tarefa"
+                                            >Data limite</label
+                                        ><input
+                                            type="date"
+                                            name="data-tarefa"
+                                            id="data-tarefa"
+                                            class="form-control"
+                                        />
+                                        <div class="invalid-feedback invalid-date">
+                                            A data não pode ser no passado.
+                                        </div>
+                                    </p>
+                                    <p>
+                                        <input
+                                            type="submit"
+                                            value="Inserir tarefa"
+                                            id="btSubmit"
+                                            class="btn btn-primary"
+                                        />
+                                    </p>
+                                </form>
+                            </div>
                         </div>
 
-                        <label class="form-label" for="data-tarefa"
-                            >Data limite</label
-                        ><input
-                            type="date"
-                            name="data-tarefa"
-                            id="data-tarefa"
-                            class="form-control"
-                        />
-                        <div class="invalid-feedback invalid-date">
-                            A data não pode ser no passado.
+                    </div>
+                    
+                    <div class="flex-grow-1">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <!-- For test purpose only -->
+                                <!-- 
+                                <ul id="lista_tarefas" class="list-group">
+                                    <li class="tarefa-todo list-group-item d-flex align-items-center gap-2 bg-warning">
+                                        <span class="tarefa-texto flex-grow-1">nmsfmnfmnf</span>
+                                        <span class="tarefa-data">2022-09-23</span>
+                                        <span class="btn btn-outline-primary edit-bt"><i class="bi bi-pencil edit-bt"></i></span>
+                                        <span class="btn btn-outline-danger remove-bt"><i class="bi bi-x-lg remove-bt"></i></span>
+                                    </li>
+                                </ul>
+                                -->
+
+
+                                <table id="lista_tarefas" class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Tarefa</th>
+                                            <th scope="col">Data limite</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- For test purpose only -->
+                                        <!-- 
+                                        <tr class="tarefa-todo">
+                                            <td class="tarefa-texto w-50" scope="row">
+                                                <span>Tarefa super especial</span>
+                                            </td>
+                                            <td class="tarefa-data">
+                                                <span>2023-01-21</span>
+                                            </td>
+                                            <td class="w-25">
+                                                <span class="btn btn-outline-primary edit-bt"><i class="bi bi-pencil edit-bt"></i></span>
+                                                <span class="btn btn-outline-danger remove-bt"><i class="bi bi-x-lg remove-bt"></i></span>
+                                            </td>
+                                        </tr>
+                                         -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </p>
-                    <p>
-                        <input
-                            type="submit"
-                            value="Inserir tarefa"
-                            id="btSubmit"
-                            class="btn btn-primary"
-                        />
-                    </p>
+                    </div>
                 </div>
-                </form>
-                
-                <hr>
-                
-                <!-- <ul id="lista_tarefas" class="list-group">
-                    <!-- For test purpose only --
-                    <li class="tarefa-todo list-group-item d-flex align-items-center gap-2 bg-warning">
-                        <span class="tarefa-texto flex-grow-1">nmsfmnfmnf</span>
-                        <span class="tarefa-data">2022-09-23</span>
-                        <span class="btn btn-outline-primary edit-bt"><i class="bi bi-pencil edit-bt"></i></span>
-                        <span class="btn btn-outline-danger remove-bt"><i class="bi bi-x-lg remove-bt"></i></span>
-                    </li>
-                </ul>
 
-                <hr> -->
-
-                <table id="lista_tarefas" class="table align-middle">
-                    <thead>
-                        <tr>
-                            <th scope="col">Tarefa</th>
-                            <th scope="col">Data limite</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <!-- </div> -->
             </main>
         </div>
 
