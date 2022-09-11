@@ -1,11 +1,11 @@
-const contentHeader = document.querySelectorAll(".content-header");
-const contentSections = document.querySelectorAll(".content-section > p");
+contentHeaders = document.querySelectorAll(".content-header");
+contentSections = document.querySelectorAll(".content-section > p");
 
 
 function activateTab(selection){
     let headerIndex;
 
-    contentHeader.forEach((header, pos) => {
+    contentHeaders.forEach((header, pos) => {
         if(header === selection){
             header.classList.add("active-header");
             headerIndex = pos;
@@ -27,7 +27,7 @@ function renderContent(selectionIndex){
     });
 }
 
-contentHeader.forEach((section) => {
+contentHeaders.forEach((section) => {
     section.addEventListener("click", function(){
         let selectedTabIndex = activateTab(this);
         renderContent(selectedTabIndex);

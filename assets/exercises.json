@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Exercício 1",
+        "htmlUrl": "/exercises/ex01.html"
+    },
+    {
+        "title": "Exercício 2",
+        "htmlUrl": "/exercises/ex02.html"
+    },
+    {
+        "title": "Exercício 3",
+        "htmlUrl": "/exercises/ex03.html"
+    },
+    {
+        "title": "Exercício 4",
+        "htmlUrl": "/exercises/ex04.html"
+    },
+    {
+        "title": "Exercício 5",
+        "htmlUrl": "/exercises/ex05.html"
+    },
+    {
+        "title": "Exercício 6",
+        "htmlUrl": "/exercises/ex06.html"
+    },
+    {
+        "title": "Exercício 7",
+        "htmlUrl": "/exercises/ex07.html"
+    },
+    {
+        "title": "Exercício 8",
+        "htmlUrl": "/exercises/ex08.html"
+    },
+    {
+        "title": "Exercício 9",
+        "htmlUrl": "/exercises/ex09.html"
+    },
+    {
+        "title": "Exercício 10",
+        "htmlUrl": "/exercises/ex10.html"
+    },
+    {
+        "title": "Exercício 11",
+        "htmlUrl": "/exercises/ex11.html"
+    },
+    {
+        "title": "Exercício 12",
+        "htmlUrl": "/exercises/ex12.html"
+    },
+    {
+        "title": "Exercício 13",
+        "htmlUrl": "/exercises/ex13.html"
+    },
+    {
+        "title": "Exercício 14",
+        "htmlUrl": "/exercises/ex14.html"
+    },
+    {
+        "title": "Exercício 15",
+        "htmlUrl": "/exercises/ex15.html"
+    },
+    {
+        "title": "Exercício 16",
+        "htmlUrl": "/exercises/ex16.html"
+    },
+    {
+        "title": "Exercício 17",
+        "htmlUrl": "/exercises/ex17.html",
+        "cssUrl": "/exercises/ex17.css",
+        "jslUrl": "/exercises/ex17.js"
+    }
+]
