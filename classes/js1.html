@@ -7,9 +7,11 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
 
         <title>Aula 01 | 2022-08-29</title>
     </head>
@@ -23,6 +25,44 @@
                 <h1 class="display-4 text-primary">Aula 1</h1>
 
                 Olá mundo
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-html">
+                        &lt;!-- 
+                        Não é mais utilizado porque apenas o Javascript é utilizado nas TAGs 'script'
+                        &lt;script type="text/javascript"&gt;&lt;/script&gt;
+                        &lt;script type="application/ecmascript"&gt;&lt;/script&gt; 
+                        --&gt;
+                        &lt;script&gt;
+                            var total = 34;
+                            let name = "Pedro Remoaldo";
+                            let localidade;
+                            localidade = "Porto";
+                
+                            // Outros comandos
+                            console.log(name); // Muito usado
+                            console.warn(name); // Evitar o uso
+                            console.error(name); // Evitar o uso
+                
+                            // alert(name); // Evitar o uso
+                
+                            // document.write(name); // NÃO USAR!!!
+                
+                            // if (total = 34) {    // Atribuição, mas não dá erro!
+                            // if (total == 34) {   // Compara o valor: "0" == 0 -> true
+                            // if (total === 34) {  // Compara valor e tipo: "0" === 0 -> false
+                            if (total === 34) {
+                                console.log("OK");
+                            } else {
+                                console.log("Valor errado");
+                            }
+                        &lt;/script&gt;
+                    </code>
+                </pre>
             </main>
         </div>
 

@@ -7,11 +7,12 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
+        <link rel="stylesheet" href="/css/js5dom2accordion.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
-
-        <link rel="stylesheet" href="/css/js5dom2accordion.css" />
+        <script src="/js/prism.js"></script>
 
         <title>Aula 05 | 2022-09-05 | DOM (2)</title>
     </head>
@@ -51,6 +52,67 @@
                         voluptate enim.
                     </section>
                 </section>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        // Método antigo
+                        // HTMLCollection(3)
+                        // let titulos = document.getElementsByClassName("acordeao")[0].getElementsByTagName("h2");
+
+                        // Método atual
+                        // HTMLCollection(3)
+                        let titulos = document.querySelectorAll(".acordeao > h2");
+
+                        console.log(titulos);
+
+                        let sections = document.querySelectorAll(".acordeao > section");
+
+                        // Não é possível adiciona event listenner para array
+                        // titulos.onclick = function(){
+                        //     console.log("Clicou");
+                        // };
+
+                        for(let titulo of titulos){
+                            titulo.addEventListener("click", function(){
+                                let currentSection = this.nextElementSibling;
+                                
+                                // let estado = window.getComputedStyle(currentSection).getPropertyValue("display");
+                                // if(estado === "none"){
+                                //     currentSection.style.display = "block";
+                                // }else{
+                                //     currentSection.style.display = "none";
+                                // }
+                                // currentSection.style.display = estado === "none" ? "block" : "none";
+
+                                currentSection.classList.toggle("esconde");
+                                sections.forEach(section => {
+                                    if(section !== currentSection){
+                                        section.classList.add("esconde");
+                                    }
+                                });
+
+                                for(let titulo of titulos){
+                                    let estado = window.getComputedStyle(titulo.nextElementSibling).getPropertyValue("display");
+                                    console.log(estado);
+                                    console.log(titulo);
+
+                                    if(estado === "none"){
+                                        titulo.querySelector("span").classList.add("seta_fechada");
+                                        titulo.querySelector("span").classList.remove("seta_aberta");
+                                    } else {
+                                        titulo.querySelector("span").classList.add("seta_aberta");
+                                        titulo.querySelector("span").classList.remove("seta_fechada");
+                                    }
+                                }
+
+                            });
+                        }
+                    </code>
+                </pre>
             </main>
         </div>
 

@@ -5,14 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Aula 08 | 2022-09-08 | jQUery</title>
-
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
         <link rel="stylesheet" href="/css/js8jqueryAccordion.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
+
+        <title>Aula 08 | 2022-09-08 | jQUery</title>
     </head>
     <body>
         <header
@@ -50,6 +52,53 @@
                         voluptate enim.
                     </section>
                 </section>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        // $(".acordeao > h2").next().hide();
+                        // $(".acordeao > h2").eq(0).next().show();
+                        $(".acordeao > h2").on("click", function() {
+                            // if ($(this).next().is(":visible")) {
+                            //     $(this).next().hide();
+                            // } else {
+                            //     $(this).next().show();
+                            // }
+                            // $(this).next().toggle();
+                            // $(this).next().slideToggle('slow');
+                            // $(this).next().slideToggle(3000); // ms
+
+                            // $(this).next().slideToggle();
+                            // $(".acordeao > h2").not($(this)).next().slideUp();
+                            // $(".acordeao > h2").each(function() {
+                            //     if ($(this).next().is(":visible")) {
+                            //         $(this).find("span").addClass("seta_aberta").removeClass("seta_fechada");
+                            //     } else {
+                            //         $(this).find("span").addClass("seta_fechada").removeClass("seta_aberta");
+                            //     }
+                            // });
+
+                            $(this).next().slideToggle();
+                            if ($(this).next().is(":visible")) {
+                                $(this).find("span")
+                                    .addClass("seta_aberta")
+                                    .removeClass("seta_fechada");
+                            } else {
+                                $(this).find("span")
+                                    .addClass("seta_fechada")
+                                    .removeClass("seta_aberta");
+                            }
+                            $(".acordeao > h2").not($(this)).next()
+                                            .slideUp().prev()
+                                            .find("span")
+                                            .addClass("seta_fechada")
+                                            .removeClass("seta_aberta");
+                        });
+                    </code>
+                </pre>
             </main>
         </div>
 

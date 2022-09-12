@@ -7,9 +7,11 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
 
         <title>Aula 03 | 2022-08-31 | RegEx</title>
     </head>
@@ -21,6 +23,22 @@
         <div class="container d-flex">
             <main class="d-flex flex-column">
                 <h1 class="display-4 text-primary">Aula 3 | RegEx</h1>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        let name = "Pedro Remoaldo";
+                        let re = /^[a-zA-Z ]*$/;
+                        if (!re.test(name)) {
+                            console.log("Formato incorreto!");
+                        } else {
+                            console.log("Formato correto!");
+                        }
+                    </code>
+                </pre>
             </main>
         </div>
 

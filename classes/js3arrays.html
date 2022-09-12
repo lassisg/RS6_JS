@@ -7,9 +7,11 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
 
         <title>Aula 03 | 2022-08-31 | Arrays</title>
     </head>
@@ -21,6 +23,65 @@
         <div class="container d-flex">
             <main class="d-flex flex-column">
                 <h1 class="display-4 text-primary">Aula 3 | Arrays</h1>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        let students = ["César", "Thiago", "João"];
+                        console.log(students);
+            
+                        students[0] = "Sérgio";
+                        students[students.length] = "Diogo";
+                        students[students.length] = "OCtávio";
+                        students.push("Leandro");
+                        students.unshift("Ruben");
+                        students.splice(1, 0, "Mário");
+            
+                        console.table(students);
+                        console.log(typeof students);
+                        console.log(students instanceof Array);
+                        console.log(Array.isArray(students));
+            
+                        let removedStudent = students.pop();
+                        console.table(students);
+                        console.log(removedStudent);
+            
+                        let result = students.splice(1, 2);
+                        console.table(students);
+                        console.log(result);
+            
+                        let replaced = students.splice(3, 1, "Filipe");
+                        console.table(students);
+                        console.log(replaced);
+            
+                        // Temperatura mínima, máxima e média
+                        let temperatures = [12, 35, 8, 23, 19, 9, 30, -6];
+            
+                        let max = -Infinity;
+                        let min = +Infinity;
+                        let total = 0;
+            
+                        for (let temp of temperatures) {
+                            max = temp > max ? temp : max;
+                            min = temp < min ? temp : min;
+                            total += temp;
+                        }
+            
+                        console.log(`Máx = ${min}`);
+                        console.log(`Min = ${max}`);
+                        let avg = total / temperatures.length;
+                        console.log(`Avg = ${avg}`);
+            
+                        console.log(Math.min(...temperatures));
+                        console.log(Math.max(...temperatures));
+                        console.log(
+                            temperatures.reduce((a, b) => a + b, 0) / temperatures.length
+                        );
+                    </code>
+                </pre>
             </main>
         </div>
 

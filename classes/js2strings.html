@@ -7,9 +7,11 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
 
         <title>Aula 02 | 2022-08-30 | Strings</title>
     </head>
@@ -21,6 +23,58 @@
         <div class="container d-flex">
             <main class="d-flex flex-column">
                 <h1 class="display-4 text-primary">Aula 2 | Strings</h1>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        // Strings (por motivo de consistência, utilizar sempre o mesmo delimitador)
+                        let inicial = "P";
+                        let nome = "Pedro Remoaldo";
+            
+                        let teste = "A inicial é inicial";
+                        console.log(teste);
+            
+                        console.log("A inicial é", inicial);
+                        console.log("A inicial é " + inicial + "."); // + --> Operador de concatenação
+            
+                        // template string/ variable interpolation
+                        console.log(`A inicial é ${inicial}.`);
+                        console.log(`A inicial é ${inicial.toLowerCase()}.`);
+            
+                        // Uma string é um array-like, não permite usar métodos de array
+                        // for (let pos = 0; pos < nome.length; pos++) {
+                        //     // console.log(nome[pos]);
+                        //     console.log(nome.charAt(pos));
+                        // }
+            
+                        // let pos = 0;
+                        // while (pos < nome.length) {
+                        //     // console.log(nome.charAt(pos++));
+                        //     console.log(nome.charAt(pos));
+                        //     pos++;
+                        // }
+            
+                        // for (let letra of nome) {
+                        //     console.log(letra);
+                        // }
+            
+                        let nomeInvertido = "";
+                        // for (let pos = 0; pos < nome.length; pos++) {
+                        //     nomeInvertido = nome.charAt(pos) + nomeInvertido;
+                        // }
+            
+                        for (let pos = nome.length; pos >= 0; pos--) {
+                            nomeInvertido += nome.charAt(pos);
+                        }
+                        console.log(nomeInvertido);
+            
+                        let invertido = nome.split("").reverse().join("");
+                        console.log(invertido);
+                    </code>
+                </pre>
             </main>
         </div>
 

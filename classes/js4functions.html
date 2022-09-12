@@ -7,9 +7,11 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
 
         <title>Aula 04 | 2022-09-01 | Functions</title>
     </head>
@@ -21,6 +23,55 @@
         <div class="container d-flex">
             <main class="d-flex flex-column">
                 <h1 class="display-4 text-primary">Aula 4 | Functions</h1>
+
+                <hr />
+
+                <h3 class="display-6 text-primary">Código da aula</h3>
+
+                <pre class="line-numbers">
+                    <code class="language-javascript">
+                        // let nome = "Pedro Remoaldo";
+                        // let localidade = "Ermesinde";
+            
+                        // let dados = {
+                        //     nome: "Pedro Remoaldo",
+                        //     localidade: "Ermesinde",
+                        // };
+                        // console.log(dados.nome);
+            
+                        // total = 3;
+                        // console.log(total);
+            
+                        // criar uma função, validaExtensao(nomeFiheiro), que recebe como parâmetro o nome de um ficheiro e retorna um booleano (true ou false) dependendo do facto da extensão do ficheiro ser válida ou não - criar um array com as extensões válidas (png, jpeg, gif)
+            
+                        // function extraiExtensao(nomeFiheiro) {
+                        //     let position = [...nomeFiheiro.split(".")];
+                        //     return position.pop();
+                        // }
+            
+                        function extraiExtensao(nomeFicheiro) {
+                            let dotPosition = nomeFicheiro.indexOf(".");
+                            return nomeFicheiro.slice(dotPosition + 1);
+                        }
+            
+                        function validaExtensao(nomeFiheiro) {
+                            let validExtensions = ["png", "jpeg", "gif"];
+                            let extensao = extraiExtensao(nomeFiheiro);
+            
+                            // if (validExtensions.indexOf(extensao) >= 0) {
+                            //     return true;
+                            // } else {
+                            //     return false;
+                            // }
+            
+                            // return validExtensions.indexOf(extensao) >= 0 ? true : false;
+                            return validExtensions.includes(extensao) ? true : false;
+                        }
+            
+                        console.log(validaExtensao("teste.gif")); // true
+                        console.log(validaExtensao("teste.docx")); // false
+                    </code>
+                </pre>
             </main>
         </div>
 
