@@ -18,7 +18,7 @@ function addContentToHeader(headerElement, headerData, headerItemText){
                 >
             </li>`;
     }
-    let currentLink = document.querySelector(`[href="${currentUrl}"]`);
+    let currentLink = document.querySelector(`li > a[href="${currentUrl}"]`);
     if(currentLink){
         currentLink.classList.add("active");
     }
