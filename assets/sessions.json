@@ -62,9 +62,9 @@
         "jslUrl": "/exercises/js08_jqueryAccordion.js"
     },
     {
-        "title": "Sessão 09 | ???",
-        "htmlUrl": "/classes/js09_.html",
-        "cssUrl": "/exercises/js09_.css",
-        "jslUrl": "/exercises/js09_.js"
+        "title": "Sessão 09 | DOM - Tasks (2)",
+        "htmlUrl": "/classes/js09_dom4tasks2.html",
+        "cssUrl": "/exercises/js09_dom4tasks2.css",
+        "jslUrl": "/exercises/js09_dom4tasks2.js"
     }
 ]
