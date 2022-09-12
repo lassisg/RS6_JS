@@ -60,5 +60,11 @@
         "htmlUrl": "/classes/js8jqueryAccordion.html",
         "cssUrl": "/exercises/js8jqueryAccordion.css",
         "jslUrl": "/exercises/js8jqueryAccordion.js"
+    },
+    {
+        "title": "Sessão 09 | ???",
+        "htmlUrl": "/classes/js9.html",
+        "cssUrl": "/exercises/js9.css",
+        "jslUrl": "/exercises/js9.js"
     }
 ]
