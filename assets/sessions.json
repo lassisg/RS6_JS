@@ -2,69 +2,69 @@
     {
         "title": "Sessão 01 | Aula introdutória",
         "description": "Como declarar e usar variáveis, onde devemos colocar a TAG script escrever informações no console utilizando <code>console.log()</code>, <code>console.warn()</code>, <code>console.error()</code>",
-        "htmlUrl": "/classes/js1.html"
+        "htmlUrl": "/classes/js01.html"
     },
     {
         "title": "Sessão 02 | Strings",
-        "htmlUrl": "/classes/js2strings.html"
+        "htmlUrl": "/classes/js02_strings.html"
     },
     {
         "title": "Sessão 02 | Strings (2)",
-        "htmlUrl": "/classes/js2strings2.html"
+        "htmlUrl": "/classes/js02_strings2.html"
     },
     {
         "title": "Sessão 03 | Strings",
-        "htmlUrl": "/classes/js3strings.html"
+        "htmlUrl": "/classes/js03_strings.html"
     },
     {
         "title": "Sessão 03 | RegEx",
-        "htmlUrl": "/classes/js3regex.html"
+        "htmlUrl": "/classes/js03_regex.html"
     },
     {
         "title": "Sessão 03 | Arrays",
-        "htmlUrl": "/classes/js3arrays.html"
+        "htmlUrl": "/classes/js03_arrays.html"
     },
     {
         "title": "Sessão 04 | Arrays",
-        "htmlUrl": "/classes/js4arrays.html"
+        "htmlUrl": "/classes/js04_arrays.html"
     },
     {
         "title": "Sessão 04 | Functions",
-        "htmlUrl": "/classes/js4functions.html"
+        "htmlUrl": "/classes/js04_functions.html"
     },
     {
         "title": "Sessão 05 | DOM",
-        "htmlUrl": "/classes/js5dom1.html",
-        "jslUrl": "/exercises/js5dom1.js"
+        "htmlUrl": "/classes/js05_dom1.html",
+        "jslUrl": "/exercises/js05_dom1.js"
     },
     {
         "title": "Sessão 05 | DOM (2)",
-        "htmlUrl": "/classes/js5dom2.html",
-        "cssUrl": "/exercises/js5dom2accordion.css",
-        "jslUrl": "/exercises/js5dom2.js"
+        "htmlUrl": "/classes/js05_dom2.html",
+        "cssUrl": "/exercises/js05_dom2accordion.css",
+        "jslUrl": "/exercises/js05_dom2.js"
     },
     {
         "title": "Sessão 06 | DOM - Galeria",
-        "htmlUrl": "/classes/js6dom3galeria.html",
-        "cssUrl": "/exercises/js6dom3galeria.css",
-        "jslUrl": "/exercises/js6dom3galeria.js"
+        "htmlUrl": "/classes/js06_dom3galeria.html",
+        "cssUrl": "/exercises/js06_dom3galeria.css",
+        "jslUrl": "/exercises/js06_dom3galeria.js"
     },
     {
         "title": "Sessão 07 | DOM - Tasks",
-        "htmlUrl": "/classes/js7dom4tasks.html",
-        "cssUrl": "/exercises/js7dom4tasks.css",
-        "jslUrl": "/exercises/js7dom4tasks.js"
+        "htmlUrl": "/classes/js07_dom4tasks.html",
+        "cssUrl": "/exercises/js07_dom4tasks.css",
+        "jslUrl": "/exercises/js07_dom4tasks.js"
     },
     {
         "title": "Sessão 08 | jQuery",
-        "htmlUrl": "/classes/js8jqueryAccordion.html",
-        "cssUrl": "/exercises/js8jqueryAccordion.css",
-        "jslUrl": "/exercises/js8jqueryAccordion.js"
+        "htmlUrl": "/classes/js08_jqueryAccordion.html",
+        "cssUrl": "/exercises/js08_jqueryAccordion.css",
+        "jslUrl": "/exercises/js08_jqueryAccordion.js"
     },
     {
         "title": "Sessão 09 | ???",
-        "htmlUrl": "/classes/js9.html",
-        "cssUrl": "/exercises/js9.css",
-        "jslUrl": "/exercises/js9.js"
+        "htmlUrl": "/classes/js09_.html",
+        "cssUrl": "/exercises/js09_.css",
+        "jslUrl": "/exercises/js09_.js"
     }
 ]
