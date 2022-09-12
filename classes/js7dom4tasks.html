@@ -7,6 +7,10 @@
 
         <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
         <link rel="stylesheet" href="/css/prism-coy.css" />
         <link rel="stylesheet" href="/css/js7dom4tasks.css" />
 
@@ -30,9 +34,8 @@
 
                 <h2 class="display-6">Gestão de tarefas</h2>
     
-                <div class="d-flex flex-wrap gap-4">
-                    <div class="flex-grow-1">
-                        
+                <div class="row">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body">
                                 <form id="form_tarefa">
@@ -73,10 +76,9 @@
                                 </form>
                             </div>
                         </div>
-
                     </div>
-                    
-                    <div class="flex-grow-1">
+                        
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body">
                                 
@@ -103,7 +105,7 @@
                                     </thead>
                                     <tbody>
                                         <!-- For test purpose only -->
-                                        <!-- 
+                                        <!--                                         
                                         <tr class="tarefa-todo">
                                             <td class="tarefa-texto w-50" scope="row">
                                                 <span>Tarefa super especial</span>

@@ -11,8 +11,8 @@ document.querySelector("#tela")
 let imagens = document.querySelectorAll(".galeria > img");
 let imagemGrande = document.querySelector("#tela_imagem");
     
-let leftArrow = document.querySelector(".fa-angle-left");
-let rightArrow = document.querySelector(".fa-angle-right");
+let leftArrow = document.querySelector(".bi-chevron-left");
+let rightArrow = document.querySelector(".bi-chevron-right");
 let currentPosition = 0;
 
 for(let imagem of imagens){

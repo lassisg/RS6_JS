@@ -23,7 +23,7 @@
     left: 0;
     /* bottom: 0; */
     /* right: 0; */
-    /* z-index: 99999; */
+    z-index: 99999;
     
     /* Para centrar a imagem */
     display: none;
@@ -74,6 +74,8 @@
     padding: 10px 20px;
     text-align: center;
 }
+.bi-chevron-left,
+.bi-chevron-right,
 .fa-angle-left,
 .fa-angle-right{
     position: absolute;
@@ -82,12 +84,14 @@
     cursor: pointer;
     user-select: none;
 }
+.bi-chevron-left,
 .fa-angle-left{
     left: 21px;
     /* top: 375px; */
     top: 50%;
     transform: translateY(-50%);
 }
+.bi-chevron-right,
 .fa-angle-right{
     right: 21px;
     top: 50%;
