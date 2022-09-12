@@ -73,7 +73,6 @@
                 <pre class="line-numbers">
                     <code class="language-javascript">
                         // DOM API - Document Object Model Application Programming Interface
-                        // TODO: Review code | NOT WORKING
                         // HTMLCollection - array-like
                         let paragrafo = document.getElementsByTagName("p")[1];
                         console.log(paragrafo);
@@ -89,7 +88,7 @@
                         // document.getElementById("btAltera").onclick=
                         botao.onclick = function(){ // anonymous function / callback
                             // paragrafo.textContent = "Pedro Remoaldo";
-                            paragrafo.innerHTML = "<strong>Pedro Remoaldo</strong>";
+                            paragrafo.innerHTML = "&lt;strong&gt;Pedro Remoaldo&lt;/strong&gt;";
                             // paragrafo.style.color = "yellow";
                             // paragrafo.style.backgroundColor = "red";
 
@@ -112,7 +111,6 @@
                             this.style.backgroundColor = "blue";
                         }
                         document.getElementById("btOutro").onclick = mudaBotao;
-
 
                         let conteudo = document.getElementById("conteudoCollapse");
                         let botaoMostra = document.getElementById("btMostra");
@@ -137,7 +135,7 @@
             class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
         ></footer>
 
-        <script src="/js/includes.js" />
-        <script src="/js/js5dom1.js" />
+        <script src="/js/includes.js"></script>
+        <script src="/js/js5dom1.js"></script>
     </body>
 </html>

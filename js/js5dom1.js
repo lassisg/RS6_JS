@@ -1,5 +1,4 @@
 // DOM API - Document Object Model Application Programming Interface
-// TODO: Review code | NOT WORKING
 // HTMLCollection - array-like
 let paragrafo = document.getElementsByTagName("p")[1];
 console.log(paragrafo);
