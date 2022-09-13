@@ -73,7 +73,6 @@ formTarefa.addEventListener("submit", function(event){
             campoTarefa.focus();
         }
     }
-    
 
 });
 
@@ -98,8 +97,16 @@ listaTarefas.addEventListener("click", function(event){
     let isRemoveButton = elemento.classList.contains("remove-bt");
 
     if(isRemoveButton){
-        elemento.closest("tr").remove();
-        // TODO: Remove item from array
+        let tarefa = elemento.closest("tr");
+        let tarefaProps = tarefa.querySelectorAll("td span");
+        
+        // DONE: Remove item from array
+        tasks.forEach((item, pos) => {
+            if(item.tarefa === tarefaProps[0].textContent && item.data === tarefaProps[1].textContent){
+                tasks.splice(pos, 1);
+            }
+        });
+        tarefa.remove();
         campoTotal.textContent = tasks.length;
     }
     
