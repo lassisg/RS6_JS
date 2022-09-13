@@ -66,5 +66,11 @@
         "htmlUrl": "/classes/js09_dom4tasks2.html",
         "cssUrl": "/exercises/js09_dom4tasks2.css",
         "jslUrl": "/exercises/js09_dom4tasks2.js"
+    },
+    {
+        "title": "Sessão 10 | DOM - Tasks (3)",
+        "htmlUrl": "/classes/js10_dom4tasks3.html",
+        "cssUrl": "/exercises/js10_dom4tasks3.css",
+        "jslUrl": "/exercises/js10_dom4tasks3.js"
     }
 ]
