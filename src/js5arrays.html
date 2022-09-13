@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Arrays</title>
+</head>
+<body>
+    <script>
+        let formandos=["César","Thiago","João"];
+        formandos[0]="Sérgio";
+        // formandos[100]="Sérgio";
+        formandos[formandos.length]="Diogo";
+        formandos[formandos.length]="Octávio";
+        formandos.push("Leandro");
+        formandos.unshift("Ruben");
+        formandos.splice(1,0,"Mário");
+        console.log(formandos);
+        console.table(formandos);
+        console.log(typeof formandos); // object
+        console.log(formandos instanceof Array); // true
+        console.log(Array.isArray(formandos)); // true
+        let removedElement=formandos.pop();
+        console.table(formandos);
+        console.log(removedElement);
+        let resultado = formandos.splice(1,2);
+        console.table(formandos);
+        console.log(resultado);
+        let substituidos = formandos.splice(3,1,"Filipe");
+        console.table(formandos);
+
+        let temperaturas=[12, 35, 8, 23, 19, 9, 30, -6];
+        // temperatura mínima, máxima e média
+
+        let max=-Infinity;
+        let min=+Infinity;
+        let total=0;
+        for(let temp of temperaturas) {
+            if (temp>max) {
+                max=temp;
+            }
+            if (temp<min) {
+                min=temp;
+            }
+            total+=temp;
+        }
+        console.log("Max="+max);
+        console.log("Min="+min);
+        let media=total/temperaturas.length;
+        console.log("Média="+media);
+
+    </script>
+</body>
+</html>

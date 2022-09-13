@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - Strings</title>
+</head>
+<body>
+    <script>
+        let naosai=true;
+        while(naosai) {
+            let resposta=prompt('Introduza uma letra:');
+            if (resposta===null) {
+                alert("Cancelou o prompt!");
+                break;
+            }
+            // o utilizador só pode introduzir uma única letra
+            // e tem de introduzir pelo menos uma letra
+            if (resposta.length!==1) {
+                alert("Tem de introduzir 1 letra.");
+            } else {
+                let codigo=resposta.charCodeAt(0);
+                if (codigo>=65 && codigo<=90) {
+                    console.log(`A letra '${resposta}' está em maiúsculas.`);
+                } else if (codigo>=97 && codigo<=122) {
+                    console.log(`A letra '${resposta}' está em minúsculas.`);
+                } else {
+                    console.log(`O caractere '${resposta}' não é uma letra.`);
+                }
+                naosai=false;
+            }
+        }
+        // botão cancelar
+
+
+        // let resposta=prompt('Introduza uma letra:');
+        // while(naosai) {
+        //     // o utilizador só pode introduzir uma única letra
+        //     // e tem de introduzir pelo menos uma letra
+        //     if (resposta.length!==1) {
+        //         alert("Tem de introduzir 1 letra.");
+        //     } else {
+        //         let codigo=resposta.charCodeAt(0);
+        //         if (codigo>=65 && codigo<=90) {
+        //             console.log(`A letra '${resposta}' está em maiúsculas.`);
+        //             break;
+        //         } else if (codigo>=97 && codigo<=122) {
+        //             console.log(`A letra '${resposta}' está em minúsculas.`);
+        //             break;
+        //         } else {
+        //             console.log(`O caractere '${resposta}' não é uma letra.`);
+        //         }
+        //     }
+        //     let resposta=prompt('Introduza uma letra:');
+        // }
+    </script>
+</body>
+</html>

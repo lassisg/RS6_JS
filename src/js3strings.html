@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Strings</title>
+</head>
+<body>
+    <script>
+        let nome="Pedro Remoaldo";
+        let resultado=nome.indexOf("E"); 
+        console.log(resultado);
+        let resultado2=nome.search(/E/i);
+        console.log(resultado2);
+
+        let resultado3=nome.toUpperCase().indexOf("E".toUpperCase());
+        console.log(resultado3);
+
+        let letraAEncontrar="E";
+        let pos;
+        for(pos=0;pos<nome.length;pos++) {
+            if (nome.charAt(pos).toUpperCase()===letraAEncontrar.toUpperCase()) {
+                // console.log(pos);
+                break;
+            }
+        }
+        if (pos<nome.length) {
+            console.log(pos);
+        } else {
+            console.log(-1);
+        }
+
+        // let posLastSpace=nome.lastIndexOf(" ");
+        let pos2;
+        for(pos2=nome.length-1;pos2>=0;pos2--) {
+            if (nome.charAt(pos2)===" ") {
+                break;
+            }
+        }
+        let posLastSpace=pos2;
+        
+        let lastName="";
+        for (pos=posLastSpace+1;pos<nome.length;pos++) {
+            lastName+=nome.charAt(pos);
+        }
+        console.log(lastName);
+
+        // outra solução
+        let temp=nome.split(" ");
+        let lastName1=temp[temp.length-1];
+        console.log(lastName1);
+
+    </script>
+</body>
+</html>

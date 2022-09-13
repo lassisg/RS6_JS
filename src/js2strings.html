@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Strings</title>
+</head>
+<body>
+    <script>
+        // Strings
+        let inicial="P";
+        // let nome='Pedro\nRemoaldo';
+        let nome='Pedro Remoaldo';
+        let teste="A inicial é $inicial";
+        console.log(teste);
+        console.log("A inicial é",inicial);
+        console.log("A inicial é "+inicial+"."); // + - operador de concatenação
+        // template strings / variable interpolation
+        console.log(`A inicial é ${inicial}.`);
+        console.log(`A inicial é ${inicial.toLowerCase()}.`);
+        // mostrar o conteúdo da variável "nome" na consola, um carácter por linha
+        // uma string é um array-like
+        // nome!==length-1
+        for(let pos=0;pos<nome.length;pos++) {
+            // console.log(nome[pos]);
+            console.log(nome.charAt(pos));
+        }
+
+        let pos=0;
+        while(pos<nome.length) {
+            console.log(nome.charAt(pos));
+            pos++;
+        }
+
+        for (let letra of nome) {
+            console.log(letra);
+        }
+
+        // inverter o nome
+        // odlaomeR ordeP
+        // let invertido="";
+        // for(let pos=0;pos<nome.length;pos++) {
+        //     invertido=nome.charAt(pos)+invertido;
+        // }
+        // for(let pos=nome.length;pos>=0;pos--) {
+        //     invertido+=nome.charAt(pos);
+        // }
+
+        let invertido=nome.split('').reverse().join('');
+
+        console.log(invertido);
+    </script>
+</body>
+</html>

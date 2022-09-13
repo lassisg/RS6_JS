@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - DOM 4 - Tasks</title>
+    <link rel="stylesheet" href="dom4tasks_2.css">
+</head>
+<body>
+    <!-- LocalStorage -->
+    <h2>Gestão de tarefas</h2>
+    <!-- <form id="formTarefa" action="processa.aspx"> -->
+    <form id="formTarefa">
+        <p><label for="tarefa">Tarefa:</label> <input type="text" id="tarefa" name="tarefa"></p>
+        <p><label for="data_limite">Data limite:</label> <input type="date" id="data_limite" name="data_limite"></p>
+        <p><input type="submit" value="Inserir tarefa" id="btSubmit"></p>
+    </form>
+    <table id="listaTarefas" class="tabelaDados">
+        <thead>
+            <tr>
+                <th>Tarefa</th>
+                <th>Data limite</th>
+                <th>Operações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>Dormir</td>
+                <td>2022-09-13</td>
+                <td><button type="button">X</button></td>
+            </tr> -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total de tarefas: <span id="totalTarefas">0</span></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="dom4tasks_2.js"></script>
+</body>
+</html>
