@@ -40,6 +40,7 @@ function addTask(task){
                 <span class="btn btn-outline-danger remove-bt">${removeIcon}</span>
             </td>
         </tr>`;
+    // TODO: Hide buttons if completed
 }
 
 function saveTasks(){
@@ -120,6 +121,7 @@ formTarefa.addEventListener("submit", function(event){
 
 
 function toggleTaskStatus(currentElement){
+    console.log(currentElement);
     let removeButton = currentElement.getElementsByClassName("remove-bt")[0];
     let editButton = currentElement.getElementsByClassName("edit-bt")[0];
     let currentTaskText = currentElement.querySelector(".tarefa-texto > span").textContent;
