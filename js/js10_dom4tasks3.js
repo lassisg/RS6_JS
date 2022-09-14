@@ -26,10 +26,11 @@ const tasks = taskLocalData;
 function addTask(task){
     const removeIcon = `<i class="bi bi-x-lg remove-bt"></i>`;
     const editIcon = `<i class="bi bi-pencil edit-bt"></i>`;
+    const completeClass = task.terminada ? "task-complete" : "";
     // let taskDate = task.data ? Intl.DateTimeFormat().format(task.data) : "";
     // console.log(`data: '${task.data}'`);
     taskTableRows.innerHTML += `
-        <tr class="tarefa-todo">
+        <tr class="tarefa-todo ${completeClass}">
             <td class="tarefa-texto w-50" scope="row">
                 <span>${task.tarefa}</span>
             </td>
@@ -57,8 +58,6 @@ if(tasks.length){
 } else {
     taskTable.closest(".card").style.display = "none";
 }
-
-
 
 formTarefa.addEventListener("submit", function(event){
     event.preventDefault();
@@ -93,7 +92,7 @@ formTarefa.addEventListener("submit", function(event){
                 formButton.classList.remove("update");
                 formButton.value = "Inserir tarefa";
             }else{
-                let currentTask = { tarefa: taskText, data: taskDate };
+                let currentTask = { tarefa: taskText, data: taskDate, terminada: false };
                 addTask(currentTask);
                 tasks.push(currentTask);
                 saveTasks();
@@ -121,10 +120,13 @@ formTarefa.addEventListener("submit", function(event){
 
 
 function toggleTaskStatus(currentElement){
-    
     let removeButton = currentElement.getElementsByClassName("remove-bt")[0];
     let editButton = currentElement.getElementsByClassName("edit-bt")[0];
+    let currentTaskText = currentElement.querySelector(".tarefa-texto > span").textContent;
     
+    let currentTask = tasks.find(tarefa => tarefa.tarefa.toUpperCase() === currentTaskText.toUpperCase());
+    
+    currentTask.terminada = !currentTask.terminada;
     currentElement.classList.toggle("task-complete");
     if (currentElement.classList.contains("task-complete")) {
         removeButton.style.display = "none";
@@ -138,9 +140,9 @@ function toggleTaskStatus(currentElement){
 taskTable.addEventListener("click", function(event){
     let elemento = event.target;
     let isRemoveButton = elemento.classList.contains("remove-bt");
+    let tarefa = elemento.closest("tr");
 
     if(isRemoveButton){
-        let tarefa = elemento.closest("tr");
         let tarefaProps = tarefa.querySelectorAll("td span");
         
         // DONE: Remove item from array
@@ -161,8 +163,6 @@ taskTable.addEventListener("click", function(event){
 
     let isEditButton = elemento.classList.contains("edit-bt");
     if(isEditButton){
-        let tarefa = elemento.closest("tr");
-
         clearErrorMessages();
         
         tarefa.classList.add("edit");
@@ -181,9 +181,10 @@ taskTable.addEventListener("dblclick", function(event){
     }else if(elemento.nodeName === "SPAN"){
         toggleTaskStatus(elemento.parentElement.parentElement);
     }
+    saveTasks();
 });
 
-// Mostrar a data no formato dd/mm/aaaa
-// acrescentar uma nova propriedade ao objecto tarefa, chamada "terminada" que tem um valor booleano
-// acrescentar uma seta a cada título de coluna que, quando clicada (toggle - asc e desc), permite ordenar os registos/linhas
-// implementar um filtro de tarefas e uma pesquisa tarefas
+// TODO: Mostrar a data no formato dd/mm/aaaa
+// DONE: Acrescentar uma nova propriedade ao objecto tarefa, chamada "terminada" que tem um valor booleano
+// TODO: Acrescentar uma seta a cada título de coluna que, quando clicada (toggle - asc e desc), permite ordenar os registos/linhas
+// TODO: Implementar um filtro de tarefas e uma pesquisa tarefas
