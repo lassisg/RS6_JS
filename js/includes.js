@@ -34,6 +34,42 @@ function addContentToSectionHome(sectionElement, sectionData){
     }
 }
 
+function loadSessionsContent(){
+    fetch("/assets/sessions.json")
+        .then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            let classesData = JSON.parse(data);
+            addContentToHeader(classes, classesData, "Aulas Home");
+            return classesData;
+        })
+        .then((data)=>{
+            if(currentUrl === '/classes/'){
+                let sessionList = document.querySelector("ul.list-group");
+                addContentToSectionHome(sessionList, data);
+            }
+        });
+}
+
+function loadExercisesContent(){
+    fetch("/assets/exercises.json")
+        .then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            let exercisesData = JSON.parse(data);
+            addContentToHeader(exercises, exercisesData, "Exercícios Home");
+            return exercisesData;
+        })
+        .then((data)=>{
+            if(currentUrl === '/exercises/'){
+                let exerciseList = document.querySelector("ul.list-group");
+                addContentToSectionHome(exerciseList, data);
+            }
+        });
+}
+
 fetch("/header.html")
     .then((response) => {
         header = document.querySelector("header");
@@ -46,38 +82,10 @@ fetch("/header.html")
         exercises = header.querySelector("#dropdown-exercises");
     })
     .then(() => {
-        fetch("/assets/sessions.json")
-            .then((response) => {
-                return response.text();
-            })
-            .then((data) => {
-                let classesData = JSON.parse(data);
-                addContentToHeader(classes, classesData, "Aulas Home");
-                return classesData;
-            })
-            .then((data)=>{
-                if(currentUrl === '/classes/'){
-                    let sessionList = document.querySelector("ul.list-group");
-                    addContentToSectionHome(sessionList, data);
-                }
-            });
+        loadSessionsContent();
     })
     .then(() => {
-        fetch("/assets/exercises.json")
-            .then((response) => {
-                return response.text();
-            })
-            .then((data) => {
-                let exercisesData = JSON.parse(data);
-                addContentToHeader(exercises, exercisesData, "Exercícios Home");
-                return exercisesData;
-            })
-            .then((data)=>{
-                if(currentUrl === '/exercises/'){
-                    let exerciseList = document.querySelector("ul.list-group");
-                    addContentToSectionHome(exerciseList, data);
-                }
-            });
+        loadExercisesContent();
     });
 
 fetch("/footer.html")
