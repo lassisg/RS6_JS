@@ -1,95 +1,117 @@
-let listaTarefas = document.querySelector("#lista_tarefas");
-let tableRows = document.querySelector("#lista_tarefas > tbody");
 let formTarefa = document.querySelector("#form_tarefa");
 let campoTarefa = document.querySelector('#tarefa');
 let campoDataLimite = document.querySelector('#data-limite');
-let campoTotal = document.querySelector("#totalTasks");
 let formButton = document.querySelector("#btSubmit");
+let taskTable = document.querySelector("#lista_tarefas");
+let taskTableRows = document.querySelector("#lista_tarefas > tbody");
+let campoTotal = document.querySelector("#totalTasks");
+// Validar o valor introduzido (não pode vazio / tem de ter, nomínimo, 3 caracteres )
+let taskValidationMessage = document.querySelector(".invalid-feedback.invalid-task");
+let taskRepeatedMessage = document.querySelector(".invalid-feedback.repeated-task");
+// Validar data (não pode ser no passado)
+let taskDateValidationMessage = document.querySelector(".invalid-feedback.invalid-date");
+
 // Variáveis para validação da data
 let now = new Date();
 let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
 // Criar uma estrutura de dados para armazenar em memória as tarefas e as respectivas datas
-let dados = [];
+let taskLocalData = [];
 if(JSON.parse(localStorage.getItem("tasks")) !== null){
-    dados = JSON.parse(localStorage.getItem("tasks"));
+    taskLocalData = JSON.parse(localStorage.getItem("tasks"));
 }
-const tasks = dados;
+const tasks = taskLocalData;
 
-// TODO: Adicionar função para criar os itens de localStorage na página
-if(!tableRows.childElementCount){
-    listaTarefas.closest(".card").style.display = "none";
+// DONE: Adicionar função para criar os itens de localStorage na página
+function addTask(task){
+    const removeIcon = `<i class="bi bi-x-lg remove-bt"></i>`;
+    const editIcon = `<i class="bi bi-pencil edit-bt"></i>`;
+    // let taskDate = task.data ? Intl.DateTimeFormat().format(task.data) : "";
+    // console.log(`data: '${task.data}'`);
+    taskTableRows.innerHTML += `
+        <tr class="tarefa-todo">
+            <td class="tarefa-texto w-50" scope="row">
+                <span>${task.tarefa}</span>
+            </td>
+            <td class="tarefa-data"><span>${task.data}</span></td>
+            <td class="w-25">
+                <span class="btn btn-outline-primary edit-bt">${editIcon}</span>
+                <span class="btn btn-outline-danger remove-bt">${removeIcon}</span>
+            </td>
+        </tr>`;
 }
 
-// document.querySelector("#btSubmit").addEventListener("click", function(){
+function saveTasks(){
+    let tasksData = JSON.stringify(tasks);
+    localStorage.setItem("tasks", tasksData);
+}
+
+function clearErrorMessages(){
+    taskDateValidationMessage.style.display = "none";
+    taskRepeatedMessage.style.display = "none";
+    taskValidationMessage.style.display = "none";
+}
+
+if(tasks.length){
+    tasks.forEach(task => addTask(task));
+} else {
+    taskTable.closest(".card").style.display = "none";
+}
+
+
+
 formTarefa.addEventListener("submit", function(event){
     event.preventDefault();
     
-    let valor = campoTarefa.value.trim();
-    let data = campoDataLimite.value;
-    let valorData = new Date(data);
-    let dataValida = !data || valorData >= today;
-
-    // Validar o valor introduzido (não pode vazio / tem de ter, nomínimo, 3 caracteres )
-    let taskValidationMessage = document.querySelector(".invalid-feedback.invalid-task");
-    let taskDateValidationMessage = document.querySelector(".invalid-feedback.invalid-date");
+    let taskText = campoTarefa.value.trim();
+    let taskDate = campoDataLimite.value;
+    let taskDateValue = new Date(taskDate);
+    console.log(Intl.DateTimeFormat().format(taskDateValue));
+    let isValidDate = !taskDate || taskDateValue >= today;
+    let isRepeatedTask = tasks.find(tarefa => tarefa.tarefa.toUpperCase() === taskText.toUpperCase());
     let isEdit = formButton.classList.contains("update");
-    if (valor.length > 2 && dataValida) {
-        let removeIcon = `<i class="bi bi-x-lg remove-bt"></i>`;
-        let editIcon = `<i class="bi bi-pencil edit-bt"></i>`;
-        
-        
-        // devolve o índice do objeto encontrado ou -1
-        // let taskPosition = tasks.findIndex(tarefa => tarefa.tarefa === valor && tarefa.data == data);
-        // if(isRepeatedTask === -1){
 
-        // devolve o objeto encontrado ou undefined
-        let isRepeatedTask = tasks.find(tarefa => tarefa.tarefa.toUpperCase() === valor.toUpperCase() && tarefa.data == data);
-        if(!isRepeatedTask){
-            console.log("Não é repetido");
+    clearErrorMessages();
+    if(isRepeatedTask && !isEdit){
+        taskRepeatedMessage.style.display = "block";
+        campoTarefa.focus();
+    } else if (taskText.length > 2 && isValidDate) {
+        
+        if(!isRepeatedTask || isEdit){
+            
             if(isEdit){
+                let currentTask = { tarefa: campoTarefa.value.trim(), data: campoDataLimite.value };
                 let tarefaAtual = document.querySelector(".edit");
+                tarefaAtual.querySelector(".tarefa-texto > span").textContent = currentTask.tarefa;
+                tarefaAtual.querySelector(".tarefa-data > span").textContent = currentTask.data;
+
+                let taskIndex = tasks.findIndex(tarefa => tarefa.tarefa.toUpperCase() === taskText.toUpperCase());
+                tasks.splice(taskIndex, 1, currentTask);
+                saveTasks();
+                
                 tarefaAtual.classList.remove("edit");
-                tarefaAtual.querySelector(".tarefa-texto > span").textContent = campoTarefa.value;
-                tarefaAtual.querySelector(".tarefa-data > span").textContent = campoDataLimite.value;
                 formButton.classList.remove("update");
                 formButton.value = "Inserir tarefa";
             }else{
-                tableRows.innerHTML += `
-                    <tr class="tarefa-todo">
-                        <td class="tarefa-texto w-50" scope="row">
-                            <span>${valor}</span>
-                        </td>
-                        <td class="tarefa-data"><span>${data}</span></td>
-                        <td class="w-25">
-                            <span class="btn btn-outline-primary edit-bt">${editIcon}</span>
-                            <span class="btn btn-outline-danger remove-bt">${removeIcon}</span>
-                        </td>
-                    </tr>`;
-
-                let currentTask = { tarefa: valor, data: data };
+                let currentTask = { tarefa: taskText, data: taskDate };
+                addTask(currentTask);
                 tasks.push(currentTask);
-                // Serialização
-                let tasksData = JSON.stringify(tasks);
-                localStorage.setItem("tasks", tasksData);
+                saveTasks();
                 
                 campoTotal.textContent = tasks.length;
-                listaTarefas.parentElement.parentElement.style.display = "flex";
+                taskTable.parentElement.parentElement.style.display = "flex";
             }
             campoTarefa.value = '';
             campoDataLimite.value = '';
-            taskValidationMessage.style.display = "none";
-            taskDateValidationMessage.style.display = "none";
+            
         }
         campoTarefa.focus();
     } else {
-        taskDateValidationMessage.style.display = "none";
-        if(!dataValida){
+        if(!isValidDate){
             taskDateValidationMessage.style.display = "block";
             campoDataLimite.focus();
         }
-        taskValidationMessage.style.display = "none";
-        if(valor.length <= 2){
+        if(taskText.length <= 2){
             taskValidationMessage.style.display = "block";
             campoTarefa.focus();
         }
@@ -113,7 +135,7 @@ function toggleTaskStatus(currentElement){
     }
 }
 
-listaTarefas.addEventListener("click", function(event){
+taskTable.addEventListener("click", function(event){
     let elemento = event.target;
     let isRemoveButton = elemento.classList.contains("remove-bt");
 
@@ -125,26 +147,24 @@ listaTarefas.addEventListener("click", function(event){
         tasks.forEach((item, pos) => {
             if(item.tarefa === tarefaProps[0].textContent && item.data === tarefaProps[1].textContent){
                 tasks.splice(pos, 1);
-
-                // Serialização
-                let tasksData = JSON.stringify(tasks);
-                localStorage.setItem("tasks", tasksData);
             }
         });
+        saveTasks();
         tarefa.remove();
-        // se tivessemos definido let tasks=[]
-        // tasks=tasks.filter(item => item.tarefa!==tarefaProps[0].textContent && item.data === tarefaProps[1].textContent)
         campoTotal.textContent = tasks.length;
     }
     
-    if(!tableRows.childElementCount){
-        listaTarefas.parentElement.parentElement.style.display = "none";
+    if(!taskTableRows.childElementCount){
+        taskTable.parentElement.parentElement.style.display = "none";
         campoTarefa.focus();
     }
 
     let isEditButton = elemento.classList.contains("edit-bt");
     if(isEditButton){
         let tarefa = elemento.closest("tr");
+
+        clearErrorMessages();
+        
         tarefa.classList.add("edit");
         campoTarefa.value = tarefa.querySelector(".tarefa-texto > span").textContent;
         campoDataLimite.value = tarefa.querySelector(".tarefa-data > span").textContent;
@@ -153,7 +173,7 @@ listaTarefas.addEventListener("click", function(event){
     }
 });
 
-listaTarefas.addEventListener("dblclick", function(event){
+taskTable.addEventListener("dblclick", function(event){
     let elemento = event.target;
 
     if(elemento.nodeName === "TD"){
