@@ -61,6 +61,7 @@ function addExercisesContentToHeader(headerElement, headerData) {
         headerElement.innerHTML += exerciseItem(item.title, item.htmlUrl);
     }
 }
+
 function addContentToSectionHome(sectionElement, sectionData) {
     for (const item of sectionData) {
         sectionElement.innerHTML += `
@@ -117,11 +118,6 @@ function loadExercisesContent() {
         })
         .then(() => {
             setActiveMenuItem();
-            // let currentLink = document.querySelector(`a[href="${currentUrl}"]`);
-            // if (currentLink) {
-            //     console.log(currentLink);
-            //     currentLink.classList.add("active");
-            // }
         });
 }
 
@@ -160,11 +156,4 @@ fetch("/header.html")
     })
     .then(() => {
         loadExercisesContent();
-        // })
-        // .then(() => {
-        // let currentLink = document.querySelector(`a[href="${currentUrl}"]`);
-        // if (currentLink) {
-        //     console.log(currentLink);
-        //     currentLink.classList.add("active");
-        // }
     });
