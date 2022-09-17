@@ -12,25 +12,23 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
         />
         <link rel="stylesheet" href="/css/prism-coy.css" />
-        <link rel="stylesheet" href="/css/js07_dom4tasks.css" />
+        <link rel="stylesheet" href="/css/js09_dom4tasks2.css" />
 
         <!-- JavaScript Bundle with Popper -->
         <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/prism.js"></script>
         
-        <title>Aula 07 | 2022-09-07 | Tasks</title>
+        <title>Aula 09 | 2022-09-12 | Tasks (2)</title>
 
     </head>
     <body>
-        <header
-            class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
-        ></header>
+        <header></header>
 
-        <div class="container d-flex">
-
-
-            <main class="d-flex flex-column flex-grow-1">
-                <h1 class="display-4 text-primary">Aula 7 | DOM - Tasks</h1>
+        <!-- <div class="container d-flex">
+            <main class="d-flex flex-column flex-grow-1"> -->
+        <main>
+            <div class="container-lg">
+                <h1 class="display-4 text-primary">Aula 9 | DOM - Tasks (2)</h1>
 
                 <h2 class="display-6">Gestão de tarefas</h2>
     
@@ -53,12 +51,12 @@
                                             A tarefa não pode ser vazia e deve ter, no mínimo, 3 caracteres.
                                         </div>
 
-                                        <label class="form-label" for="data-tarefa"
+                                        <label class="form-label" for="data-limite"
                                             >Data limite</label
                                         ><input
                                             type="date"
-                                            name="data-tarefa"
-                                            id="data-tarefa"
+                                            name="data-limite"
+                                            id="data-limite"
                                             class="form-control"
                                         />
                                         <div class="invalid-feedback invalid-date">
@@ -81,31 +79,17 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-body">
-                                
-                                <!-- For test purpose only -->
-                                <!-- 
-                                <ul id="lista_tarefas" class="list-group">
-                                    <li class="tarefa-todo list-group-item d-flex align-items-center gap-2 bg-warning">
-                                        <span class="tarefa-texto flex-grow-1">nmsfmnfmnf</span>
-                                        <span class="tarefa-data">2022-09-23</span>
-                                        <span class="btn btn-outline-primary edit-bt"><i class="bi bi-pencil edit-bt"></i></span>
-                                        <span class="btn btn-outline-danger remove-bt"><i class="bi bi-x-lg remove-bt"></i></span>
-                                    </li>
-                                </ul>
-                                -->
-
-
-                                <table id="lista_tarefas" class="table table-hover align-middle">
+                                <table id="lista_tarefas" class="table table-hover table-striped align-middle">
                                     <thead>
                                         <tr>
                                             <th scope="col">Tarefa</th>
                                             <th scope="col">Data limite</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Operações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- For test purpose only -->
-                                        <!--                                         
+                                        <!--
                                         <tr class="tarefa-todo">
                                             <td class="tarefa-texto w-50" scope="row">
                                                 <span>Tarefa super especial</span>
@@ -120,7 +104,20 @@
                                         </tr>
                                          -->
                                     </tbody>
+                                    <tfoot class="bg-secondary text-light">
+                                        <tr>
+                                            <td colspan="3">Total de tarefas: <span id="totalTasks">0</span></td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
+                                <p>
+                                    <input
+                                        type="submit"
+                                        value="Guardar tarefas"
+                                        id="btSave"
+                                        class="btn btn-primary"
+                                    />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -365,14 +362,20 @@
                     </code>
                 </pre>
 
-            </main>
-        </div>
+            </div>
+        </main>
 
-        <footer
-            class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-        ></footer>
+        <footer></footer>
 
         <script src="/js/includes.js"></script>
-        <script src="/js/js07_dom4tasks.js"></script>
+        <script>
+            const tooltipTriggerList = document.querySelectorAll(
+                '[data-bs-toggle="tooltip"]'
+            );
+            const tooltipList = [...tooltipTriggerList].map(
+                (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+            );
+        </script>
+        <script src="/js/js09_dom4tasks2.js"></script>
     </body>
 </html>

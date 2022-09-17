@@ -28,9 +28,7 @@
         <title>Aula 06 | 2022-09-06 | DOM - Galeria</title>
     </head>
     <body>
-        <header
-            class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
-        ></header>
+        <header></header>
 
         <div class="container d-flex">
             <main class="d-flex flex-column">
@@ -186,12 +184,10 @@
                         });
                     </code>
                 </pre>
-            </main>
-        </div>
+            </div>
+        </main>
 
-        <footer
-            class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-        ></footer>
+        <footer></footer>
 
         <section id="tela">
             <section id="tela_conteudo">
@@ -207,6 +203,14 @@
         </section>
 
         <script src="/js/includes.js"></script>
+        <script>
+            const tooltipTriggerList = document.querySelectorAll(
+                '[data-bs-toggle="tooltip"]'
+            );
+            const tooltipList = [...tooltipTriggerList].map(
+                (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+            );
+        </script>
         <script src="/js/js06_dom3galeria.js"></script>
     </body>
 </html>
