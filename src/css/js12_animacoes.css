@@ -1,0 +1,243 @@
+#quadrado,
+.quadrado {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+}
+
+#rectangulo {
+    width: 200px;
+    height: 100px;
+    border: 1px solid #000;
+}
+
+#circulo {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+#elipse {
+    width: 200px;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+#triangulo {
+    border-left: 50px solid #000;
+    border-right: none;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    width: 0px;
+    height: 0px;
+}
+
+#curvedarrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-right: 9px solid red;
+    transform: rotate(10deg);
+}
+
+#curvedarrow:after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-top: 3px solid red;
+    border-radius: 20px 0 0 0;
+    top: -12px;
+    left: -9px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+}
+
+#yin-yang {
+    width: 96px;
+    box-sizing: content-box;
+    height: 48px;
+    background: #eee;
+    border-color: red;
+    border-style: solid;
+    border-width: 2px 2px 50px 2px;
+    border-radius: 100%;
+    position: relative;
+}
+
+#yin-yang:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #eee;
+    border: 18px solid red;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+}
+
+#yin-yang:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: red;
+    border: 18px solid #eee;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+}
+
+#rodar {
+    /* transition: transform 1s 2s; */
+    /* transition-property: transform; */
+    transition-property: all;
+    transition-delay: 2s;
+    transition-duration: 1s;
+    /* transition-timing-function: ; */
+}
+
+#rodar:hover {
+    transform: rotate(45deg);
+    /* transform-origin: 0 0; */
+    width: 300px;
+}
+
+#inclinar {
+    transform: skew(-45deg);
+}
+
+#resize {
+    /* transform: scale(0.5); */
+    transform: scale(2);
+    /* zoom: 2; */
+}
+
+#mover {
+    transform: translate(300px, 100px);
+}
+
+#multiplo {
+    /* transform: translateX(300px) rotate(3000deg); */
+    transform: rotate(45deg) translateX(300px);
+}
+
+@keyframes anima {
+
+    /* from {} */
+    0% {
+        background-color: yellow;
+    }
+
+    50% {
+        transform: translateX(300px) rotate(3000deg);
+    }
+
+    100% {
+        background-color: blue;
+    }
+}
+
+#animado {
+    /* animation: anima 2s infinite; */
+    animation-name: anima;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* animation-name: ; */
+    /* animation-duration: ; */
+    /* animation-timing-function: ; */
+    /* animation-delay: ; */
+    /* animation-fill-mode: forwards; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+    /* animation-play-state: paused; */
+}
+
+@keyframes bateCoracao {
+    0% {
+        transform: scale(1)
+    }
+
+    14% {
+        transform: scale(1.3)
+    }
+
+    28% {
+        transform: scale(1)
+    }
+
+    42% {
+        transform: scale(1.3)
+    }
+
+    70% {
+        transform: scale(1)
+    }
+}
+
+/* .animate__heartBeat {
+    animation-name: heartBeat;
+    animation-duration: 1.3s;
+    animation-duration: calc(var(--animate-duration)*1.3);
+    animation-timing-function: ease-in-out
+} */
+
+/* .animate__animated {
+    animation-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both
+} */
+
+#titulo {
+    width: 200px;
+    text-align: center;
+    /* animation-name: heartBeat; */
+    animation-name: bateCoracao;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#titulo:hover {
+    animation-play-state: paused;
+}
+
+@keyframes andar {
+    /* 12.5% {
+        background-position-x: -175px;
+    }
+    25% {
+        background-position-x: -350px;
+    }
+    37.5% {
+        background-position-x: -525px;
+    }
+    50% {
+        background-position-x: -700px;
+    } */
+    100% {
+        background-position-x: -1400px;
+    }
+}
+@keyframes mover {
+    100% {
+        transform: translateX(1000px);
+    }
+}
+
+#sprite {
+    width: 175px;
+    height: 309px;
+    background-image: url('imagens/walk.png');
+    background-repeat: no-repeat;
+    animation: andar 1.5s infinite steps(8), mover 10s cubic-bezier(.71,2,.74,-1.59) forwards;
+}
+
+#animacaoJS {
+    transition: transform 2s;
+}

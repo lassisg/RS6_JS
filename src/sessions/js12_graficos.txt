@@ -1,0 +1,17 @@
+Imagens fixas
+    gif, jpeg, png, webp
+    Font icons
+Desenhar
+    Com HTML e CSS
+    Canvas - desenhar com JavaScript
+    SVG - Scalar Vector Graphics
+Animação
+    CSS
+    JavaScript
+    Libraries JavaScript
+        jQuery
+    SVG
+        SMIL
+        JavaScript
+    WebGL
+        Libraries - Three.js
