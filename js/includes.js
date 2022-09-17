@@ -3,28 +3,65 @@ let classes;
 let exercises;
 let currentUrl = window.location.pathname;
 
-function addContentToHeader(headerElement, headerData, headerItemText){
-    let homeUrl = headerElement === classes ? "classes" : "exercises";
-    headerElement.innerHTML += `
+const exerciseItem = (title, url) => {
+    let exerciseHTML = `
         <li class="nav-item">
-            <a class="dropdown-item" href="/${homeUrl}/">${headerItemText}</a>
-        </li>
-        <li><hr class="dropdown-divider" /></li>`;
-    for (const item of headerData) {
-        headerElement.innerHTML += `
-            <li class="nav-item">
-                <a class="dropdown-item" href="${item.htmlUrl}"
-                    >${item.title}</a
-                >
-            </li>`;
-    }
-    let currentLink = document.querySelector(`li > a[href="${currentUrl}"]`);
-    if(currentLink){
-        currentLink.classList.add("active");
-    }
+            <a class="nav-link" data-bs-toggle="tooltip" data-bs-title="Código sem framework" href="${url}">${title}</a>
+        </li>`;
+
+    return exerciseHTML;
+};
+const sessionItem = (title, url) => {
+    let sessionHTML = `
+        <li class="nav-item">
+            <span class="d-flex align-items-center justify-content-between dropdown-item">
+                <span class="flex-fill">${title}</span>
+                <span class="d-flex">
+                    <span class="vr ms-3"></span>
+                    <span>
+                        <a class="nav-link"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="Código sem framework"
+                        href="/src${url}">
+                            <i class="bi bi-code-slash"></i>
+                        </a>
+                    </span>
+                    <span>
+                        <a class="nav-link"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="Código com Bootstrap"
+                        href="${url}">
+                            <i class="bi bi-bootstrap"></i>
+                        </a>
+                    </span>
+                </span>
+            </span>
+        </li>`;
+
+    return sessionHTML;
+};
+
+function addSessionContentToHeader(headerElement, headerData) {
+    let previousItem;
+    let currentItem;
+
+    headerData.forEach((item, pos) => {
+        currentItem = item.title.split("|")[0].trim();
+        if (pos && currentItem !== previousItem) {
+            headerElement.innerHTML += `
+            <li><hr class="dropdown-divider" /></li>`;
+        }
+        headerElement.innerHTML += sessionItem(item.title, item.htmlUrl);
+        previousItem = currentItem;
+    });
 }
 
-function addContentToSectionHome(sectionElement, sectionData){
+function addExercisesContentToHeader(headerElement, headerData) {
+    for (const item of headerData) {
+        headerElement.innerHTML += exerciseItem(item.title, item.htmlUrl);
+    }
+}
+function addContentToSectionHome(sectionElement, sectionData) {
     for (const item of sectionData) {
         sectionElement.innerHTML += `
             <li class="list-group-item">
@@ -34,41 +71,69 @@ function addContentToSectionHome(sectionElement, sectionData){
     }
 }
 
-function loadSessionsContent(){
+function setActiveMenuItem() {
+    let currentLink = document.querySelector(`a[href="${currentUrl}"]`);
+    if (currentLink) {
+        currentLink.classList.add("active");
+    }
+}
+
+function loadSessionsContent() {
     fetch("/assets/sessions.json")
         .then((response) => {
             return response.text();
         })
         .then((data) => {
             let classesData = JSON.parse(data);
-            addContentToHeader(classes, classesData, "Aulas Home");
+            addSessionContentToHeader(classes, classesData);
             return classesData;
         })
-        .then((data)=>{
-            if(currentUrl === '/classes/'){
+        .then((data) => {
+            if (currentUrl === "/classes/") {
                 let sessionList = document.querySelector("ul.list-group");
                 addContentToSectionHome(sessionList, data);
             }
+        })
+        .then(() => {
+            setActiveMenuItem();
         });
 }
 
-function loadExercisesContent(){
+function loadExercisesContent() {
     fetch("/assets/exercises.json")
         .then((response) => {
             return response.text();
         })
         .then((data) => {
             let exercisesData = JSON.parse(data);
-            addContentToHeader(exercises, exercisesData, "Exercícios Home");
+            addExercisesContentToHeader(exercises, exercisesData);
             return exercisesData;
         })
-        .then((data)=>{
-            if(currentUrl === '/exercises/'){
+        .then((data) => {
+            if (currentUrl === "/exercises/") {
                 let exerciseList = document.querySelector("ul.list-group");
                 addContentToSectionHome(exerciseList, data);
             }
+        })
+        .then(() => {
+            setActiveMenuItem();
+            // let currentLink = document.querySelector(`a[href="${currentUrl}"]`);
+            // if (currentLink) {
+            //     console.log(currentLink);
+            //     currentLink.classList.add("active");
+            // }
         });
 }
+
+fetch("/footer.html")
+    .then((response) => {
+        return response.text();
+    })
+    .then((data) => {
+        let footer = document.querySelector("footer");
+        footer.classList.add("container-lg", "py-3", "my-4", "border-top");
+        footer.innerHTML = data;
+    });
 
 fetch("/header.html")
     .then((response) => {
@@ -76,8 +141,17 @@ fetch("/header.html")
         return response.text();
     })
     .then((data) => {
+        header.classList.add(
+            "container-lg",
+            "d-flex",
+            "flex-wrap",
+            "justify-content-center",
+            "py-3",
+            "mb-4",
+            "border-bottom"
+        );
         header.innerHTML = data;
-        
+
         classes = header.querySelector("#dropdown-sessions");
         exercises = header.querySelector("#dropdown-exercises");
     })
@@ -86,12 +160,11 @@ fetch("/header.html")
     })
     .then(() => {
         loadExercisesContent();
-    });
-
-fetch("/footer.html")
-    .then((response) => {
-        return response.text();
-    })
-    .then((data) => {
-        document.querySelector("footer").innerHTML = data;
+        // })
+        // .then(() => {
+        // let currentLink = document.querySelector(`a[href="${currentUrl}"]`);
+        // if (currentLink) {
+        //     console.log(currentLink);
+        //     currentLink.classList.add("active");
+        // }
     });
