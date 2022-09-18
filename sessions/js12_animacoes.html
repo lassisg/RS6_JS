@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="/css/base.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="stylesheet" href="/src/css/js12_animacoes.css" />
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <title>
+            Aula 12 | 2022-09-15 | Transforms, transitions e animations em CSS
+        </title>
+    </head>
+    <body>
+        <header></header>
+
+        <main>
+            <div class="container-lg">
+                <h1 class="display-4 text-primary">
+                    Aula 12 | Transforms, transitions e animations em CSS
+                </h1>
+                <section id="quadrado"></section>
+                <section id="rectangulo"></section>
+                <section id="circulo"></section>
+                <section id="elipse"></section>
+                <section id="triangulo"></section>
+                <section id="curvedarrow"></section>
+                <section id="yin-yang"></section>
+
+                <!-- <h1 id="titulo" class="animate__animated animate__heartBeat">Transforms</h1> -->
+                <h1 id="titulo">Transforms</h1>
+                <section class="quadrado" id="rodar">PRIMAVERA</section>
+                <section class="quadrado" id="inclinar"></section>
+                <section class="quadrado" id="resize"></section>
+                <section class="quadrado" id="mover"></section>
+                <section class="quadrado" id="multiplo"></section>
+
+                <section class="quadrado" id="animado"></section>
+
+                <p><img src="/images/walk.png" /></p>
+                <section id="sprite"></section>
+
+                <section class="quadrado" id="animacaoJS">PRIMAVERA</section>
+            </div>
+        </main>
+
+        <footer></footer>
+
+        <script src="/js/includes.js"></script>
+
+        <script>
+            document
+                .getElementById("animacaoJS")
+                .addEventListener("click", function () {
+                    // this.style.animation="bateCoracao 2s infinite";
+                    this.style.transform = "rotate(720deg)";
+                });
+        </script>
+    </body>
+</html>
