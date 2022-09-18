@@ -1,14 +1,15 @@
-#lista_tarefas{
+#lista_tarefas {
+    min-width: 420px;
     user-select: none;
 }
-.task-complete{
+.task-complete {
     text-decoration: line-through;
 }
 /* .remove-bt{
     border: none;
 } */
 .edit-bt:hover,
-.remove-bt:hover{
+.remove-bt:hover {
     /* border: none; */
     cursor: pointer;
 }
