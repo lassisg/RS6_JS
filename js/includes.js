@@ -41,16 +41,25 @@ const sessionItem = (title, url) => {
     return sessionHTML;
 };
 
+function addSessionDivider(currentItem, pos, previousItem) {
+    let divider = "";
+    if (pos && currentItem !== previousItem) {
+        divider += `<li><hr class="dropdown-divider" /></li>`;
+    }
+    return divider;
+}
+
 function addSessionContentToHeader(headerElement, headerData) {
     let previousItem;
     let currentItem;
 
     headerData.forEach((item, pos) => {
         currentItem = item.title.split("|")[0].trim();
-        if (pos && currentItem !== previousItem) {
-            headerElement.innerHTML += `
-            <li><hr class="dropdown-divider" /></li>`;
-        }
+        headerElement.innerHTML += addSessionDivider(
+            currentItem,
+            pos,
+            previousItem
+        );
         headerElement.innerHTML += sessionItem(item.title, item.htmlUrl);
         previousItem = currentItem;
     });
@@ -59,16 +68,6 @@ function addSessionContentToHeader(headerElement, headerData) {
 function addExercisesContentToHeader(headerElement, headerData) {
     for (const item of headerData) {
         headerElement.innerHTML += exerciseItem(item.title, item.htmlUrl);
-    }
-}
-
-function addContentToSectionHome(sectionElement, sectionData) {
-    for (const item of sectionData) {
-        sectionElement.innerHTML += `
-            <li class="list-group-item">
-                <a href="${item.htmlUrl}">${item.title}</a>
-                <p>${item.description || ""}</p>
-            </li>`;
     }
 }
 
@@ -87,13 +86,6 @@ function loadSessionsContent() {
         .then((data) => {
             let classesData = JSON.parse(data);
             addSessionContentToHeader(classes, classesData);
-            return classesData;
-        })
-        .then((data) => {
-            if (currentUrl === "/classes/") {
-                let sessionList = document.querySelector("ul.list-group");
-                addContentToSectionHome(sessionList, data);
-            }
         })
         .then(() => {
             setActiveMenuItem();
@@ -109,12 +101,6 @@ function loadExercisesContent() {
             let exercisesData = JSON.parse(data);
             addExercisesContentToHeader(exercises, exercisesData);
             return exercisesData;
-        })
-        .then((data) => {
-            if (currentUrl === "/exercises/") {
-                let exerciseList = document.querySelector("ul.list-group");
-                addContentToSectionHome(exerciseList, data);
-            }
         })
         .then(() => {
             setActiveMenuItem();
@@ -141,7 +127,8 @@ fetch("/header.html")
             "container-lg",
             "d-flex",
             "flex-wrap",
-            "justify-content-center",
+            "align-items-center",
+            "justify-content-between",
             "py-3",
             "mb-4",
             "border-bottom"
