@@ -115,5 +115,21 @@
     {
         "title": "Sessão 12 | SVG",
         "htmlUrl": "/sessions/js12_svg1publico.html"
+    },
+    {
+        "title": "Sessão 13 | Ajax",
+        "htmlUrl": "/sessions/js13_ajax1.html"
+    },
+    {
+        "title": "Sessão 14 | Ajax",
+        "htmlUrl": "/sessions/js14_ajax2.html"
+    },
+    {
+        "title": "Sessão 14 | Ajax (jQuery)",
+        "htmlUrl": "/sessions/js14_ajax3jquery.html"
+    },
+    {
+        "title": "Sessão 14 | Ajax (fecth API)",
+        "htmlUrl": "/sessions/js14_ajax4fetch.html"
     }
 ]
