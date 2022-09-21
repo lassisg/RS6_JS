@@ -4,7 +4,21 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="/css/base.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
         <style>
             #posts {
                 display: none;
@@ -13,35 +27,48 @@
                 cursor: pointer;
             }
         </style>
-        <title>Ajax - Exercício 4 - fetch</title>
+        <title>Aula 14 | 2022-09-20 | Ajax - Exercício 4 (fetch API)</title>
     </head>
     <body>
-        <div class="container-lg">
-            <p><button type="button" id="btCarregaPosts">Ler posts</button></p>
-            <section id="infoPost"></section>
-            <table
-                id="posts"
-                class="table table-striped table-hover table-responsive"
-            >
-                <thead class="table-secondary">
-                    <tr>
-                        <th>userId</th>
-                        <!-- <th>id</th> -->
-                        <th>title</th>
-                        <th>body</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                    <tr>
-                        <!-- <td colspan="4"> -->
-                        <td colspan="3">
-                            Total de posts: <span id="totalPposts">0</span>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <script src="/src/js/js14_ajax4fetch.js"></script>
+        <header></header>
+
+        <main>
+            <div class="container-lg">
+                <h1 class="display-4 text-primary">
+                    Aula 14 | Ajax - Exercício 4 (fetch API)
+                </h1>
+                <p>
+                    <button type="button" id="btCarregaPosts">Ler posts</button>
+                </p>
+                <section id="infoPost"></section>
+                <table
+                    id="posts"
+                    class="table table-striped table-hover table-responsive"
+                >
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>userId</th>
+                            <!-- <th>id</th> -->
+                            <th>title</th>
+                            <th>body</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <!-- <td colspan="4"> -->
+                            <td colspan="3">
+                                Total de posts: <span id="totalPposts">0</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </main>
+
+        <footer></footer>
+
+        <script src="/js/includes.js"></script>
+        <script src="/js/js14_ajax4fetch.js"></script>
     </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="/css/prism-coy.css" />
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/prism.js"></script>
+        <title>Aula 04 | 2022-09-01 | Ex 5</title>
+    </head>
+    <body>
+        <header></header>
+
+        <main>
+            <div class="container-lg">
+                <h1 class="display-4 text-primary">Aula 04 | Exercício 5</h1>
+                <p>
+                    Resolução do <a href="/exercises/ex05.html">exercício 5</a>
+                </p>
+            </div>
+        </main>
+
+        <footer></footer>
+
+        <script src="/js/includes.js"></script>
+
+        <script>
+            // simular o método trim
+            // let teste="    Pedro Remoaldo    ";
+            let teste = "      ";
+            // teste.split(" ") + ciclo + join
+            let posInicial = 0;
+            while (teste[posInicial] === " ") {
+                posInicial++;
+            }
+            let posFinal = teste.length - 1;
+            while (teste[posFinal] === " ") {
+                posFinal--;
+            }
+            console.log(posInicial);
+            console.log(posFinal);
+            let testeProcessado = teste.substring(posInicial, posFinal + 1);
+            console.log("#" + testeProcessado + "#");
+            // resultado - "Pedro Remoaldo"
+        </script>
+    </body>
+</html>
