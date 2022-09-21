@@ -33,6 +33,10 @@
         "htmlUrl": "/sessions/js04_functions.html"
     },
     {
+        "title": "Sessão 04 | Exercício 5",
+        "htmlUrl": "/sessions/js04_ex5.html"
+    },
+    {
         "title": "Sessão 05 | DOM",
         "htmlUrl": "/sessions/js05_dom1.html",
         "jslUrl": "/js/js05_dom1.js"

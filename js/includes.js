@@ -5,38 +5,14 @@ let currentUrl = window.location.pathname;
 
 const exerciseItem = (title, url) => {
     let exerciseHTML = `
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tooltip" data-bs-title="Código sem framework" href="${url}">${title}</a>
-        </li>`;
+    <li><a class="dropdown-item" href="${url}">${title}</a></li>`;
 
     return exerciseHTML;
 };
+
 const sessionItem = (title, url) => {
     let sessionHTML = `
-        <li class="nav-item">
-            <span class="d-flex align-items-center justify-content-between dropdown-item">
-                <span class="flex-fill">${title}</span>
-                <span class="d-flex">
-                    <span class="vr ms-3"></span>
-                    <span>
-                        <a class="nav-link"
-                        data-bs-toggle="tooltip"
-                        data-bs-title="Código sem framework"
-                        href="/src${url}">
-                            <i class="bi bi-code-slash"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a class="nav-link"
-                        data-bs-toggle="tooltip"
-                        data-bs-title="Código com Bootstrap"
-                        href="${url}">
-                            <i class="bi bi-bootstrap"></i>
-                        </a>
-                    </span>
-                </span>
-            </span>
-        </li>`;
+        <li><a class="dropdown-item" href="${url}">${title}</a></li>`;
 
     return sessionHTML;
 };
