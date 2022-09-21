@@ -122,18 +122,27 @@
     },
     {
         "title": "Sessão 13 | Ajax",
-        "htmlUrl": "/sessions/js13_ajax1.html"
+        "htmlUrl": "/sessions/js13_ajax1.html",
+        "jslUrl": "/js/js13_ajax1.js"
     },
     {
         "title": "Sessão 14 | Ajax",
-        "htmlUrl": "/sessions/js14_ajax2.html"
+        "htmlUrl": "/sessions/js14_ajax2.html",
+        "jslUrl": "/js/js14_ajax2.js"
     },
     {
         "title": "Sessão 14 | Ajax (jQuery)",
-        "htmlUrl": "/sessions/js14_ajax3jquery.html"
+        "htmlUrl": "/sessions/js14_ajax3jquery.html",
+        "jslUrl": "/js/js14_ajax3jquery.js"
     },
     {
         "title": "Sessão 14 | Ajax (fecth API)",
-        "htmlUrl": "/sessions/js14_ajax4fetch.html"
+        "htmlUrl": "/sessions/js14_ajax4fetch.html",
+        "jslUrl": "/js/js14_ajax4fetch.js"
+    },
+    {
+        "title": "Sessão 15 | Ajax (fecth API - carros)",
+        "htmlUrl": "/sessions/js15_ajax5fetch_carros.html",
+        "jslUrl": "/js/js15_ajax5fetch_carros.js"
     }
 ]

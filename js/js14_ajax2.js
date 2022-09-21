@@ -44,7 +44,7 @@ function carregaDados() {
             for (let objecto of dados) {
                 // <td>${objecto.id}</td>
                 conteudo += `
-                <tr data-id="${objecto.id}">
+                <tr data-id="${objecto.id}" data-toggle="modal" data-target="#postModal">
                     <td>${objecto.userId}</td>
                     <td>${objecto.title}</td>
                     <td>${objecto.body}</td>
@@ -79,6 +79,7 @@ function lePost(id) {
         if (xhr.status === 200) {
             let objecto = JSON.parse(xhr.responseText);
             let conteudo = "";
+
             conteudo += `<div class="card mb-3 p-2">`;
             conteudo += `<h5 class="card-title">${objecto.title}</h5>`;
             conteudo += `<p>${objecto.body}</p>`;

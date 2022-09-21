@@ -1,0 +1,22 @@
+{
+    "carros": [
+        {
+            "id": 1,
+            "marca": "Bugatti",
+            "modelo": "Veyron",
+            "ano": 2002
+        },
+        {
+            "id": 2,
+            "marca": "Koenigsegg",
+            "modelo": "Jesko",
+            "ano": 2021
+        },
+        {
+            "marca": "Fiat",
+            "modelo": "Punto",
+            "ano": "1990",
+            "id": 3
+        }
+    ]
+}
